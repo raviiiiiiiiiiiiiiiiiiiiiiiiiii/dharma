@@ -13,103 +13,145 @@
     }
 
     body {
-      background: #f6f6f6;
+      background: linear-gradient(135deg, #e3f2fd, #f9fbe7);
       color: #222;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      overflow-x: hidden;
     }
 
     header {
       width: 100%;
+      padding: 80px 20px 40px;
       text-align: center;
-      padding: 40px 20px 20px;
     }
 
     header h1 {
-      font-size: 2.5rem;
-      color: #222;
-      letter-spacing: 1px;
+      font-size: 3.5rem;
+      color: #1a1a1a;
+      font-weight: 700;
     }
 
     header p {
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       color: #555;
-      margin-top: 10px;
+      margin-top: 15px;
+    }
+
+    section {
+      padding: 80px 10%;
     }
 
     .hero {
-      width: 90%;
-      max-width: 800px;
-      margin-top: 40px;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      padding: 30px;
-      text-align: center;
-      transition: 0.3s ease;
-    }
-
-    .hero:hover {
-      transform: scale(1.01);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 60px;
     }
 
     .hero img {
+      flex: 1;
+      max-width: 550px;
       width: 100%;
-      border-radius: 15px;
-      margin-bottom: 20px;
+      border-radius: 25px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+      transition: 0.3s ease;
     }
 
-    .hero h2 {
-      font-size: 1.8rem;
-      color: #333;
+    .hero img:hover {
+      transform: scale(1.02);
     }
 
-    .hero p {
+    .hero-text {
+      flex: 1;
+      min-width: 350px;
+      max-width: 600px;
+    }
+
+    .hero-text h2 {
+      font-size: 2.8rem;
+      color: #222;
+      line-height: 1.3;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-top: 20px;
+      line-height: 1.8;
+    }
+
+    .info-section {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+      margin-top: 60px;
+      padding: 50px 40px;
+      text-align: center;
+    }
+
+    .info-section h3 {
+      font-size: 2rem;
+      color: #222;
+      margin-bottom: 15px;
+    }
+
+    .info-section p {
+      color: #555;
       font-size: 1rem;
-      color: #666;
-      margin-top: 10px;
-      margin-bottom: 20px;
-      line-height: 1.6;
+      line-height: 1.8;
     }
 
-    .whatsapp-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
       background-color: #25D366;
       color: white;
+      border-radius: 50%;
+      width: 65px;
+      height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
       text-decoration: none;
-      padding: 14px 24px;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: background 0.3s ease;
+      transition: 0.3s;
+      z-index: 1000;
     }
 
-    .whatsapp-btn:hover {
+    .whatsapp-float:hover {
       background-color: #1ebe5d;
+      transform: scale(1.1);
     }
 
-    .whatsapp-btn svg {
-      width: 22px;
-      height: 22px;
+    .whatsapp-float svg {
+      width: 30px;
+      height: 30px;
       fill: white;
     }
 
     footer {
       text-align: center;
-      margin-top: 50px;
-      padding-bottom: 20px;
-      font-size: 0.9rem;
+      margin-top: 100px;
+      padding: 40px 20px;
+      background: #fafafa;
       color: #888;
+      font-size: 0.95rem;
     }
 
-    @media (max-width: 600px) {
-      header h1 { font-size: 2rem; }
-      .hero h2 { font-size: 1.5rem; }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text h2 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
@@ -117,26 +159,62 @@
 
   <header>
     <h1>Dharma</h1>
-    <p>Personalized hydration made stylish.</p>
+    <p>Custom Water Bottles — Designed for You, Built to Impress.</p>
   </header>
 
   <section class="hero">
-    <img src="https://share.google/f0suXZFwOP5QmLwfc" alt="Custom Dharma Water Bottles" />
-    <h2>Custom Water Bottles Designed Just for You</h2>
-    <p>At Dharma, we craft premium custom water bottles that reflect your personality, brand, or vibe. 
-    Whether you want minimal, sporty, or aesthetic — we make it happen. Stay hydrated, stay unique.</p>
+    <img src="https://images.unsplash.com/photo-1602506433812-2b0d3bdfb4a0?auto=format&fit=crop&w=800&q=80" alt="Dharma Custom Bottles" />
+    <div class="hero-text">
+      <h2>Make Every Sip Personal</h2>
+      <p>At <b>Dharma</b>, we turn hydration into an experience. Whether you're running a brand, leading a gym, or gifting your clients — our custom bottles are crafted to reflect style, purpose, and identity.</p>
+      <p>Personalized, premium, and perfectly practical — that's Dharma.</p>
+    </div>
+  </section>
 
-    <a class="whatsapp-btn" href="https://wa.me/9612301584" target="_blank">
-      <svg viewBox="0 0 32 32">
-        <path d="M16.04 2C8.54 2 2.5 8.04 2.5 15.54c0 2.73.72 5.33 2.1 7.64L2 30l7.02-2.18c2.19 1.2 4.68 1.83 7.02 1.83 7.5 0 13.54-6.04 13.54-13.54S23.54 2 16.04 2zm0 24.77c-2.07 0-4.1-.54-5.9-1.56l-.42-.23-4.16 1.29 1.35-4.05-.27-.42c-1.26-1.95-1.93-4.21-1.93-6.56 0-6.63 5.4-12.03 12.03-12.03s12.03 5.4 12.03 12.03-5.4 12.03-12.03 12.03zm6.93-8.73c-.37-.18-2.18-1.08-2.52-1.2-.34-.13-.59-.18-.84.18s-.96 1.2-1.18 1.44-.44.27-.81.09c-.37-.18-1.56-.58-2.97-1.86-1.1-.98-1.84-2.18-2.06-2.55-.22-.37-.02-.57.16-.75.16-.16.37-.44.56-.66.18-.22.25-.37.37-.62.12-.25.06-.46-.03-.65-.09-.18-.84-2.01-1.15-2.76-.3-.72-.61-.63-.84-.64h-.72c-.25 0-.65.09-.99.46s-1.3 1.27-1.3 3.1 1.33 3.6 1.52 3.85c.18.25 2.62 4 6.34 5.63.89.38 1.59.6 2.13.77.89.28 1.7.24 2.34.15.72-.11 2.18-.89 2.49-1.75.31-.86.31-1.6.22-1.75-.09-.15-.34-.25-.72-.43z"/>
-      </svg>
-      Chat on WhatsApp
-    </a>
+  <section class="info-section">
+    <h3>Who Is It For?</h3>
+    <p>Entrepreneurs, startups, gyms, colleges, corporate teams, influencers, and anyone who wants to stand out with branded or personalized merchandise. Dharma bottles are perfect for growing businesses or individuals who value aesthetics.</p>
+  </section>
+
+  <section class="info-section">
+    <h3>Boost Your Brand & Revenue</h3>
+    <p>Turn every bottle into a walking ad for your brand. Custom bottles increase visibility, brand recall, and loyalty — while also being a great product to resell or include in gift hampers for clients and employees.</p>
+  </section>
+
+  <section class="info-section">
+    <h3>Feel the Premium Touch</h3>
+    <p>From matte finishes to metallics and sleek curves — our bottles are built to feel luxurious in hand. You’ll notice the difference in every detail: the texture, weight, and precision of your custom design.</p>
+  </section>
+
+  <section class="info-section">
+    <h3>Eco-Friendly and Reusable</h3>
+    <p>Dharma bottles are made from sustainable materials that reduce plastic waste and promote responsible hydration. Every sip helps the planet breathe a little easier.</p>
+  </section>
+
+  <section class="info-section">
+    <h3>Perfect for Gifting</h3>
+    <p>Custom bottles make thoughtful and practical gifts — perfect for employees, clients, or friends. Add your logo, name, or message to make it memorable.</p>
+  </section>
+
+  <section class="info-section">
+    <h3>Built to Last</h3>
+    <p>Durability meets design. Our bottles are leak-proof, temperature resistant, and built for daily use without losing their shine. Quality that lasts beyond the trend.</p>
+  </section>
+
+  <section class="info-section">
+    <h3>Easy Customization</h3>
+    <p>Want your logo, text, or artwork on it? Just chat with us on WhatsApp — our design team handles everything from mockup to delivery. Quick, simple, and hassle-free.</p>
   </section>
 
   <footer>
-    © 2025 Dharma. All rights reserved.
+    © 2025 Dharma | Custom Water Bottles | All Rights Reserved
   </footer>
+
+  <a href="https://wa.me/9612301584" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32">
+      <path d="M16.04 2C8.54 2 2.5 8.04 2.5 15.54c0 2.73.72 5.33 2.1 7.64L2 30l7.02-2.18c2.19 1.2 4.68 1.83 7.02 1.83 7.5 0 13.54-6.04 13.54-13.54S23.54 2 16.04 2zm0 24.77c-2.07 0-4.1-.54-5.9-1.56l-.42-.23-4.16 1.29 1.35-4.05-.27-.42c-1.26-1.95-1.93-4.21-1.93-6.56 0-6.63 5.4-12.03 12.03-12.03s12.03 5.4 12.03 12.03-5.4 12.03-12.03 12.03zm6.93-8.73c-.37-.18-2.18-1.08-2.52-1.2-.34-.13-.59-.18-.84.18s-.96 1.2-1.18 1.44-.44.27-.81.09c-.37-.18-1.56-.58-2.97-1.86-1.1-.98-1.84-2.18-2.06-2.55-.22-.37-.02-.57.16-.75.16-.16.37-.44.56-.66.18-.22.25-.37.37-.62.12-.25.06-.46-.03-.65-.09-.18-.84-2.01-1.15-2.76-.3-.72-.61-.63-.84-.64h-.72c-.25 0-.65.09-.99.46s-1.3 1.27-1.3 3.1 1.33 3.6 1.52 3.85c.18.25 2.62 4 6.34 5.63.89.38 1.59.6 2.13.77.89.28 1.7.24 2.34.15.72-.11 2.18-.89 2.49-1.75.31-.86.31-1.6.22-1.75-.09-.15-.34-.25-.72-.43z"/>
+    </svg>
+  </a>
 
 </body>
 </html>
