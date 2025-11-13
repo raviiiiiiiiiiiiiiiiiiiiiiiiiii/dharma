@@ -371,36 +371,28 @@
   /* ============================
      CONTACT SECTION
      ============================ */
-  .contact-grid{
-    display:grid;grid-template-columns:1fr;
-    gap:16px;margin-top:20px;
-  }
-  .contact-chips{
-    display:flex;gap:10px;flex-wrap:wrap;
-  }
-  .contact-form{
-    display:grid;gap:12px;
-    padding:16px;
-    background:rgba(255,255,255,0.02);
-    border-radius:20px;
-    box-shadow:var(--card-shadow);
-  }
-  input,textarea{
-    background:transparent;border:1px solid rgba(255,255,255,0.06);
-    padding:12px;border-radius:12px;
-    color:#eef3f4;font-weight:600;
-  }
-  input::placeholder,textarea::placeholder{
-    color:rgba(255,255,255,0.35);
-  }
-  .submit{
-    background:var(--accent);
-    color:#2b0f07;
-    font-weight:900;
-    padding:12px;
-    border-radius:12px;
-    border:0;
-  }
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+  margin-top:20px;
+}
+
+.contact-chips{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.contact-cta-box{
+  padding:20px;
+  background:rgba(255,255,255,0.03);
+  border-radius:20px;
+  box-shadow:0 12px 30px rgba(2,6,12,0.45);
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
 
   /* ============================
      FOOTER
