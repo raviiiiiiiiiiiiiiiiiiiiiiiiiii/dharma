@@ -13,24 +13,33 @@
     color: #fff;
   }
 
-  header {
-    padding: 16px;
-    background: #111316;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-  }
-
   .wrap {
     max-width: 900px;
     margin: auto;
     padding: 0 16px;
   }
 
+  header {
+    padding: 16px;
+    background: #111316;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    z-index: 10;
+  }
+
   h1, h2 {
-    margin: 0 0 10px 0;
+    margin: 0 0 12px 0;
     font-weight: 900;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  section {
+    padding: 50px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
   }
 
   a.btn {
@@ -44,25 +53,15 @@
     margin-top: 12px;
   }
 
-  section {
-    padding: 40px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .design-grid {
-    display: grid;
-    gap: 20px;
-  }
-
   .card {
     background: #14161a;
     padding: 16px;
     border-radius: 14px;
   }
 
-  img {
-    width: 100%;
-    border-radius: 12px;
+  .grid {
+    display: grid;
+    gap: 20px;
   }
 
   .small {
@@ -70,7 +69,12 @@
     color: #b5b5b5;
   }
 
-  /* Floating WhatsApp */
+  img {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  /* WhatsApp Floating Button */
   .wa {
     position: fixed;
     right: 16px;
@@ -82,54 +86,73 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 28px;
+    color: #000;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(255,120,75,0.3);
   }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
   <div class="wrap">
     <h2 style="margin:0;">Dharma Bottle Studio</h2>
   </div>
 </header>
 
+<!-- HERO -->
 <section>
   <div class="wrap">
-    <h1 style="font-size:28px;line-height:1.2;">
+    <h1 style="font-size:30px;line-height:1.2;">
       Premium Custom Water Bottles  
-      Delivered Fast Nationwide.
+      For Brands, Cafes, Events & Corporates.
     </h1>
 
     <p class="small">
-      Low MOQs • Durable Prints • Perfect for Brands, Cafes, Events & Gifting.
+      We create high-quality branded bottles with durable prints, low MOQs and fast delivery nationwide.
     </p>
 
     <a href="https://wa.me/919612301584" class="btn">Get Quote on WhatsApp</a>
   </div>
 </section>
 
+<!-- ABOUT SECTION -->
+<section>
+  <div class="wrap">
+    <h2>About Us</h2>
+    <p class="small">
+      Dharma Bottle Studio specializes in premium printed water bottles for businesses, events and merch brands.
+      We focus on quality, durability and design aesthetics that make your brand stand out.
+    </p>
+  </div>
+</section>
+
+<!-- DESIGNS -->
 <section>
   <div class="wrap">
     <h2>Designs</h2>
+    <p class="small">Choose from our top-selling custom bottle styles.</p>
 
-    <div class="design-grid">
-      
+    <div class="grid">
+
       <div class="card">
         <img src="https://i.ibb.co/MkdCJqt7/il-570x-N-5966540553-4fue.jpg" alt="">
-        <p class="small">Matte Finish • 500ml</p>
+        <p class="small">Matte Black • 500ml</p>
         <a class="btn" href="https://wa.me/919612301584">Get This Design</a>
       </div>
 
       <div class="card">
         <img src="https://i.ibb.co/G4dLYv65/images-5.jpg" alt="">
-        <p class="small">Gradient Print • 750ml</p>
+        <p class="small">Gradient Tritan • 750ml</p>
         <a class="btn" href="https://wa.me/919612301584">Get This Design</a>
       </div>
 
       <div class="card">
         <img src="https://i.ibb.co/pBCJkrf0/753e8df0-b9ea-46bb-8dac-8a17d93c2c3b.webp" alt="">
-        <p class="small">Metallic Accent • 500/750ml</p>
+        <p class="small">Metallic Engraved • 500/750ml</p>
         <a class="btn" href="https://wa.me/919612301584">Get This Design</a>
       </div>
 
@@ -138,31 +161,111 @@
   </div>
 </section>
 
+<!-- FEATURES SECTION -->
 <section>
   <div class="wrap">
-    <h2>How It Works</h2>
+    <h2>Why Choose Us</h2>
 
-    <div class="card small">
-      1) Choose bottle type<br><br>
-      2) Send your logo<br><br>
-      3) Approve mockup (24hrs)<br><br>
-      4) Printed & delivered nationwide
+    <div class="grid">
+      <div class="card small">
+        <strong>Premium Materials</strong><br>
+        Stainless steel, Tritan plastic, insulated bottles & more.
+      </div>
+
+      <div class="card small">
+        <strong>Durable Printing</strong><br>
+        Scratch-resistant, fade-proof & long-lasting branding.
+      </div>
+
+      <div class="card small">
+        <strong>Low Minimum Order</strong><br>
+        Order from just 20–30 units depending on model.
+      </div>
+
+      <div class="card small">
+        <strong>Fast Turnaround</strong><br>
+        Mockups in 24 hours. Dispatch in 5–8 working days.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section>
+  <div class="wrap">
+    <h2>Use Cases</h2>
+
+    <div class="grid">
+      <div class="card small"><strong>Cafes & Restaurants</strong><br>Branded bottles for resale or ambience.</div>
+      <div class="card small"><strong>Gyms & Fitness</strong><br>Durable bottles for members and staff.</div>
+      <div class="card small"><strong>Corporate Gifting</strong><br>Perfect for employees & events.</div>
+      <div class="card small"><strong>Merch Drops</strong><br>Premium bottles for creators & brands.</div>
     </div>
   </div>
 </section>
 
+<!-- BULK INFO -->
+<section>
+  <div class="wrap">
+    <h2>Bulk Ordering</h2>
+    <p class="small">
+      We handle orders from 20 units up to 10,000+ units efficiently.  
+      Bulk discounts start at 100 units.  
+      Custom packaging & engraving available.
+    </p>
+    <a class="btn" href="https://wa.me/919612301584">Get Bulk Pricing</a>
+  </div>
+</section>
+
+<!-- SIMPLE FAQ -->
+<section>
+  <div class="wrap">
+    <h2>FAQs</h2>
+
+    <div class="grid">
+
+      <div class="card small">
+        <strong>What is the MOQ?</strong><br>
+        Usually 20–30 units.
+      </div>
+
+      <div class="card small">
+        <strong>How fast do I get mockups?</strong><br>
+        Within 24 hours.
+      </div>
+
+      <div class="card small">
+        <strong>Do you ship India-wide?</strong><br>
+        Yes, delivery in 2–5 days after production.
+      </div>
+
+      <div class="card small">
+        <strong>Can I send my own design?</strong><br>
+        Yes, PNG / SVG / AI accepted.
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section>
   <div class="wrap">
     <h2>Contact</h2>
-    <p class="small">We reply instantly on WhatsApp.</p>
+
+    <p class="small">
+      Fast replies on WhatsApp.  
+      Send your quantity, bottle type & logo.
+    </p>
+
     <a href="https://wa.me/919612301584" class="btn">Chat on WhatsApp</a>
   </div>
 </section>
 
-<!-- Floating WA -->
-<a href="https://wa.me/919612301584" class="wa">
-  💬
-</a>
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/919612301584" class="wa">💬</a>
 
 </body>
 </html>
