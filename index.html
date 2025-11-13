@@ -1,479 +1,168 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Dharma Bottle Studio — Premium Custom Water Bottles</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dharma Bottle Studio</title>
+
 <style>
-  :root{
-    --bg:#07080a;
-    --panel:#0d0f11;
-    --muted:#9aa3a7;
-    --accent:#FF784B;
-    --accent-dark:#ff6a39;
-    --card-shadow: 0 18px 40px rgba(2,6,12,0.6);
-    --card-radius:22px;
-    --radius-sm:12px;
-    --transition:220ms;
-    --max-width:1200px;
-    --mobile-section-padding:36px; /* between 32-48 */
-    --desktop-section-padding:100px; /* between 80-120 */
-  }/* RESET */ *{box-sizing:border-box} html,body{height:100%} body{ margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: radial-gradient(700px 300px at 8% 8%, rgba(255,120,75,0.02), transparent 6%), radial-gradient(600px 260px at 92% 92%, rgba(255,120,75,0.015), transparent 5%), var(--bg); color:#eef3f4; -webkit-font-smoothing:antialiased; scroll-behavior:smooth; -webkit-tap-highlight-color: transparent; } a{color:inherit;text-decoration:none} img{display:block;max-width:100%;height:auto;border-radius:16px;object-fit:cover}
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0a0b0d;
+    color: #fff;
+  }
 
-/* LAYOUT WRAPPER */ .wrap{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 18px;}
+  header {
+    padding: 16px;
+    background: #111316;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
 
-/* SPACING: mobile vs desktop (FIX #2) */ section{padding:var(--mobile-section-padding) 0;} @media(min-width:900px){ section{padding:var(--desktop-section-padding) 0;} }
+  .wrap {
+    max-width: 900px;
+    margin: auto;
+    padding: 0 16px;
+  }
 
-/* HEADER / NAV / header{ position:sticky;top:0;z-index:140; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); backdrop-filter: blur(6px); border-bottom:1px solid rgba(255,255,255,0.03); } .nav-inner{display:flex;align-items:center;gap:12px;padding:12px 0} .brand{font-weight:900;font-size:17px;letter-spacing:0.2px} / desktop nav visible on >=900 */ nav.primary{display:flex;gap:10px;margin-left:auto;align-items:center} nav.primary a{padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:700;font-size:15px} nav.primary a:hover{color:#fff;transform:translateY(-3px);transition:var(--transition)} .cta-whatsapp{background:var(--accent);padding:10px 14px;border-radius:12px;color:#2b0f07;font-weight:800;box-shadow:0 12px 30px rgba(255,120,75,0.12)}
+  h1, h2 {
+    margin: 0 0 10px 0;
+    font-weight: 900;
+  }
 
-/* HAMBURGER: mobile behaviour (FIX #1) / .hamburger{display:none;margin-left:auto} .hamburger button{background:transparent;border:0;padding:8px;border-radius:10px;color:var(--muted);width:44px;height:44px} / mobile overlay */ .menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.56);display:none;z-index:300} .menu-panel{ width:84%;max-width:380px;height:100%; background:var(--panel);padding:26px;display:flex;flex-direction:column;gap:16px; transform:translateX(40px);opacity:0;transition:transform .26s ease,opacity .26s ease; box-shadow:0 30px 80px rgba(0,0,0,0.55); } .menu-panel.show{transform:translateX(0);opacity:1} .menu-links{display:flex;flex-direction:column;gap:12px;margin-top:6px} .menu-links a{padding:12px;border-radius:10px;color:var(--muted);font-weight:800} .menu-links a:hover{background:rgba(255,255,255,0.03);color:#fff}
+  a.btn {
+    display: inline-block;
+    padding: 12px 18px;
+    background: #FF784B;
+    color: #000;
+    font-weight: 700;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 12px;
+  }
 
-/* FORCE responsive visibility rules (FIX #1) */ @media(max-width:899px){ nav.primary{display:none !important} .cta-whatsapp{display:none !important} .hamburger{display:block !important} } @media(min-width:900px){ .hamburger{display:none !important} nav.primary{display:flex !important} .menu-overlay{display:none !important} }
+  section {
+    padding: 40px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
 
-/* HERO */ .hero{border-radius:20px;padding:20px;background:linear-gradient(180deg, rgba(255,120,75,0.015), rgba(255,255,255,0.01));box-shadow:var(--card-shadow)} .hero-grid{display:grid;grid-template-columns:1fr;gap:18px;align-items:center} .eyebrow{color:var(--muted);font-weight:800;font-size:13px} h1{font-size:26px;line-height:1.05;margin:8px 0} .hero-sub{color:var(--muted);font-size:15px;max-width:720px} .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px} .btn{padding:12px 16px;border-radius:12px;font-weight:800;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:transform var(--transition)} .btn.primary{background:var(--accent);color:#2b0f07;box-shadow:0 12px 30px rgba(255,120,75,0.12)} .btn.primary:active{transform:translateY(1px)} .btn.outline{border:1px solid rgba(255,255,255,0.06);color:var(--muted);background:transparent} .hero-art{display:flex;justify-content:center;align-items:center}
+  .design-grid {
+    display: grid;
+    gap: 20px;
+  }
 
-@media(min-width:900px){ .hero{padding:36px} .hero-grid{grid-template-columns:1fr 420px} h1{font-size:42px} }
+  .card {
+    background: #14161a;
+    padding: 16px;
+    border-radius: 14px;
+  }
 
-/* DESIGNS */ .design-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px} .design-card{border-radius:20px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.02));box-shadow:var(--card-shadow);transition:transform var(--transition)} .design-card:hover{transform:translateY(-6px)} .design-media{height:260px;overflow:hidden} .design-body{padding:14px} .design-title{font-weight:900;font-size:16px} .design-meta{color:var(--muted);font-size:13px;margin-top:8px}
+  img {
+    width: 100%;
+    border-radius: 12px;
+  }
 
-@media(min-width:900px){ .design-grid{grid-template-columns:repeat(3,1fr)} .design-media{height:320px} }
+  .small {
+    font-size: 14px;
+    color: #b5b5b5;
+  }
 
-/* HOW IT WORKS */ .how-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px} .step-card{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;background:rgba(255,255,255,0.02);box-shadow:0 10px 26px rgba(2,6,12,0.45)} .step-ico{width:56px;height:56px;border-radius:12px;background:rgba(255,255,255,0.03);display:grid;place-items:center;font-weight:900} @media(min-width:900px){ .how-grid{grid-template-columns:repeat(2,1fr)} }
-
-/* CUSTOMIZATION */ .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px} .pill{padding:10px 14px;border-radius:999px;background:rgba(255,255,255,0.02);font-weight:800;color:var(--muted);font-size:14px} .info-rows{display:grid;gap:12px;margin-top:12px} .info-row{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:12px;background:rgba(255,255,255,0.02);box-shadow:0 10px 24px rgba(2,6,12,0.4)} .info-row strong{display:block;font-weight:900} .info-row p{margin:6px 0 0;color:var(--muted);font-size:14px}
-
-/* WHY CHOOSE US */ .features-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px} .feature-card{display:flex;gap:12px;align-items:center;padding:12px;border-radius:14px;background:rgba(255,255,255,0.02);box-shadow:var(--card-shadow)} .feature-ico{width:56px;height:56px;border-radius:12px;background:rgba(255,255,255,0.03);display:grid;place-items:center;font-weight:900} @media(min-width:900px){ .features-grid{grid-template-columns:repeat(3,1fr)} }
-
-/* USE CASES */ .use-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px} .use-card{display:flex;gap:12px;align-items:center;padding:12px;border-radius:14px;background:rgba(255,255,255,0.02);box-shadow:var(--card-shadow)} @media(min-width:900px){ .use-grid{grid-template-columns:repeat(3,1fr)} }
-
-/* FAQ */ .accordion{display:grid;gap:10px;margin-top:12px} .acc-item{border-radius:12px;overflow:hidden;background:rgba(255,255,255,0.02);box-shadow:0 10px 26px rgba(2,6,12,0.42)} .acc-item input{position:absolute;left:-9999px} .acc-item label{display:flex;justify-content:space-between;align-items:center;padding:14px;cursor:pointer;font-weight:900} .acc-item .answer{padding:0 14px;max-height:0;overflow:hidden;color:var(--muted);font-size:14px;transition:max-height .24s ease} .acc-item input:checked + label + .answer{max-height:420px;padding-bottom:12px} .acc-item label .chev{transition:transform .18s} .acc-item input:checked + label .chev{transform:rotate(180deg)}
-
-/* CONTACT (no form) */ .contact-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px} .contact-chips{display:flex;gap:10px;flex-wrap:wrap} .contact-cta-box{padding:16px;border-radius:14px;background:rgba(255,255,255,0.03);box-shadow:0 10px 26px rgba(2,6,12,0.45);display:flex;flex-direction:column;gap:12px}
-
-/* FOOTER */ footer{padding:24px 0;border-top:1px solid rgba(255,255,255,0.03);text-align:center;color:var(--muted);font-size:14px;margin-top:30px}
-
-/* FLOATING WHATSAPP */ .float-wa{position:fixed;right:18px;bottom:18px;width:62px;height:62px;border-radius:16px;background:var(--accent);display:grid;place-items:center;box-shadow:0 18px 40px rgba(255,120,75,0.3);z-index:999}
-
-/* small responsive fixes */ @media(max-width:520px){ .design-media{height:220px} h1{font-size:22px} } </style>
-
+  /* Floating WhatsApp */
+  .wa {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 60px;
+    height: 60px;
+    background: #FF784B;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
 </head>
+
 <body>
+
 <header>
-  <div class="wrap nav-inner" role="banner">
-    <div class="brand" aria-hidden="false">Dharma Bottle Studio</div><nav class="primary" role="navigation" aria-label="Primary navigation">
-  <a href="#home">Home</a>
-  <a href="#designs">Designs</a>
-  <a href="#customization">Customization</a>
-  <a href="#how">How It Works</a>
-  <a href="#faqs">FAQs</a>
-  <a href="#contact">Contact</a>
-  <a class="cta-whatsapp" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
-</nav>
-
-<div class="hamburger" aria-hidden="false">
-  <button id="openMenu" aria-label="Open menu">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-  </button>
-</div>
-
+  <div class="wrap">
+    <h2 style="margin:0;">Dharma Bottle Studio</h2>
   </div>
-</header><!-- Mobile menu overlay --><div id="menuOverlay" class="menu-overlay" aria-hidden="true">
-  <div class="menu-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <div style="font-weight:900;font-size:18px">Dharma Bottle Studio</div>
-      <button id="closeMenu" aria-label="Close menu" style="background:transparent;border:0;color:var(--muted)">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M6 18L18 6"/></svg>
-      </button>
-    </div><nav class="menu-links" role="navigation">
-  <a href="#home" onclick="closeMenu()">Home</a>
-  <a href="#designs" onclick="closeMenu()">Designs</a>
-  <a href="#customization" onclick="closeMenu()">Customization</a>
-  <a href="#how" onclick="closeMenu()">How It Works</a>
-  <a href="#faqs" onclick="closeMenu()">FAQs</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
-  <a class="cta-whatsapp" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
-</nav>
+</header>
 
+<section>
+  <div class="wrap">
+    <h1 style="font-size:28px;line-height:1.2;">
+      Premium Custom Water Bottles  
+      Delivered Fast Nationwide.
+    </h1>
+
+    <p class="small">
+      Low MOQs • Durable Prints • Perfect for Brands, Cafes, Events & Gifting.
+    </p>
+
+    <a href="https://wa.me/919612301584" class="btn">Get Quote on WhatsApp</a>
   </div>
-</div><main id="home" class="wrap" role="main">
-  <!-- HERO -->
-  <section aria-labelledby="hero-title">
-    <div class="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">BRANDED • CORPORATE • EVENTS</div>
-          <h1 id="hero-title">Premium custom water bottles that elevate your brand — fast and delivered nationwide.</h1>
-          <p class="hero-sub">Low MOQs, durable prints and premium finishes. Mockups in 24 hours — perfect for cafés, events, merch drops and corporate gifting.</p><div class="hero-ctas">
-        <a class="btn primary" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">Get a Quote on WhatsApp</a>
-        <a class="btn outline" href="#designs">Browse Designs</a>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Designs</h2>
+
+    <div class="design-grid">
+      
+      <div class="card">
+        <img src="https://i.ibb.co/MkdCJqt7/il-570x-N-5966540553-4fue.jpg" alt="">
+        <p class="small">Matte Finish • 500ml</p>
+        <a class="btn" href="https://wa.me/919612301584">Get This Design</a>
       </div>
 
-      <div style="display:flex;gap:12px;margin-top:12px;font-size:13px;color:var(--muted)">
-        <div>MOQ from 20 units</div>
-        <div>Mockups in 24 hours</div>
-        <div>Nationwide delivery</div>
+      <div class="card">
+        <img src="https://i.ibb.co/G4dLYv65/images-5.jpg" alt="">
+        <p class="small">Gradient Print • 750ml</p>
+        <a class="btn" href="https://wa.me/919612301584">Get This Design</a>
       </div>
-    </div>
 
-    <div class="hero-art" aria-hidden="true">
-      <img loading="lazy" src="https://i.ibb.co/MkdCJqt7/il-570x-N-5966540553-4fue.jpg" alt="Bottle sample" width="340" height="420">
-    </div>
-  </div>
-</div>
-
-  </section>  <!-- DESIGNS & MOCKUPS -->  <section id="designs" aria-labelledby="designs-title">
-    <div style="display:flex;flex-direction:column;gap:6px">
-      <h2 id="designs-title">Designs & Mockups</h2>
-      <p class="small">Three curated mockups — each has a direct WhatsApp ordering CTA.</p>
-    </div><div class="design-grid" role="list" aria-label="Designs list" style="margin-top:14px">
-  <article class="design-card" role="listitem" aria-labelledby="d1">
-    <div class="design-media">
-      <img loading="lazy" src="https://i.ibb.co/MkdCJqt7/il-570x-N-5966540553-4fue.jpg" alt="Matte bottle design">
-    </div>
-    <div class="design-body">
-      <div class="design-title" id="d1">Sleek Matte Brand Print</div>
-      <div class="design-meta">Stainless Steel • 500ml • MOQ: 25</div>
-      <p class="small" style="margin-top:8px;color:var(--muted)">Smooth matte finish with full-wrap printing — premium retail-ready look.</p>
-      <div style="margin-top:12px"><a class="btn primary" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">Get this custom design</a></div>
-    </div>
-  </article>
-
-  <article class="design-card" role="listitem" aria-labelledby="d2">
-    <div class="design-media">
-      <img loading="lazy" src="https://i.ibb.co/G4dLYv65/images-5.jpg" alt="Gradient bottle design">
-    </div>
-    <div class="design-body">
-      <div class="design-title" id="d2">Vibrant Gradient Print</div>
-      <div class="design-meta">Tritan Plastic • 750ml • MOQ: 30</div>
-      <p class="small" style="margin-top:8px;color:var(--muted)">Colorful, durable prints ideal for gyms and event merch.</p>
-      <div style="margin-top:12px"><a class="btn primary" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">Get this custom design</a></div>
-    </div>
-  </article>
-
-  <article class="design-card" role="listitem" aria-labelledby="d3">
-    <div class="design-media">
-      <img loading="lazy" src="https://i.ibb.co/pBCJkrf0/753e8df0-b9ea-46bb-8dac-8a17d93c2c3b.webp" alt="Metallic accent bottle">
-    </div>
-    <div class="design-body">
-      <div class="design-title" id="d3">Minimal Metallic Accent</div>
-      <div class="design-meta">Double-wall Stainless • 500/750ml • MOQ: 20</div>
-      <p class="small" style="margin-top:8px;color:var(--muted)">Metallic highlights for a premium corporate gifting finish.</p>
-      <div style="margin-top:12px"><a class="btn primary" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">Get this custom design</a></div>
-    </div>
-  </article>
-</div>
-
-<div style="margin-top:16px;display:flex;justify-content:center">
-  <a class="btn primary" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">View All Designs on WhatsApp</a>
-</div>
-
-  </section>  <!-- HOW IT WORKS -->  <section id="how" aria-labelledby="how-title">
-    <h2 id="how-title">How It Works</h2>
-    <p class="small" style="margin-top:8px;color:var(--muted)">Four quick steps — mockup to delivery.</p><div class="how-grid" role="list" aria-label="How it works">
-  <div class="step-card" role="listitem">
-    <div class="step-ico">1</div>
-    <div>
-      <div style="font-weight:900">Choose bottle type</div>
-      <div class="small" style="margin-top:6px;color:var(--muted)">Pick size, material and cap. We guide the best fit for printing.</div>
-    </div>
-  </div>
-
-  <div class="step-card" role="listitem">
-    <div class="step-ico">2</div>
-    <div>
-      <div style="font-weight:900">Send your logo</div>
-      <div class="small" style="margin-top:6px;color:var(--muted)">PNG, SVG, AI or request quick file prep help.</div>
-    </div>
-  </div>
-
-  <div class="step-card" role="listitem">
-    <div class="step-ico">3</div>
-    <div>
-      <div style="font-weight:900">Approve mockup</div>
-      <div class="small" style="margin-top:6px;color:var(--muted)">Realistic mockup within 24 hours. Two fast revisions included.</div>
-    </div>
-  </div>
-
-  <div class="step-card" role="listitem">
-    <div class="step-ico">4</div>
-    <div>
-      <div style="font-weight:900">Printed & delivered</div>
-      <div class="small" style="margin-top:6px;color:var(--muted)">Production 5–8 business days after approval. Nationwide delivery options.</div>
-    </div>
-  </div>
-</div>
-
-  </section>  <!-- CUSTOMIZATION -->  <section id="customization" aria-labelledby="custom-title">
-    <h2 id="custom-title">Customization Options</h2>
-    <p class="small" style="margin-top:8px;color:var(--muted)">Materials, finishes, print types, caps, sizes and bulk packaging — choose what fits your brand.</p><div style="margin-top:12px">
-  <div style="font-weight:900">Materials</div>
-  <div class="pills">
-    <div class="pill">Double-wall Stainless</div>
-    <div class="pill">Single-wall Stainless</div>
-    <div class="pill">Tritan (BPA-free)</div>
-  </div>
-
-  <div style="margin-top:12px;font-weight:900">Finishes</div>
-  <div class="pills">
-    <div class="pill">Matte</div>
-    <div class="pill">Satin</div>
-    <div class="pill">Metallic Ink</div>
-  </div>
-
-  <div style="margin-top:12px;font-weight:900">Print Types</div>
-  <div class="pills">
-    <div class="pill">Full-wrap</div>
-    <div class="pill">Spot UV</div>
-    <div class="pill">Laser Etch</div>
-  </div>
-
-  <div style="margin-top:12px;font-weight:900">Caps & Sizes</div>
-  <div class="pills">
-    <div class="pill">Screw</div>
-    <div class="pill">Flip</div>
-    <div class="pill">Straw</div>
-    <div class="pill">350ml • 500ml • 750ml</div>
-  </div>
-
-  <div style="margin-top:12px;font-weight:900">Bulk Options</div>
-  <div class="pills">
-    <div class="pill">Branded Boxes</div>
-    <div class="pill">Gift Packaging</div>
-    <div class="pill">Custom Stickers</div>
-  </div>
-
-  <div class="info-rows">
-    <div class="info-row">
-      <div style="width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.03);display:grid;place-items:center">✓</div>
-      <div>
-        <strong>Print durability</strong>
-        <p>High-bond inks and proper curing resist abrasion and fading.</p>
+      <div class="card">
+        <img src="https://i.ibb.co/pBCJkrf0/753e8df0-b9ea-46bb-8dac-8a17d93c2c3b.webp" alt="">
+        <p class="small">Metallic Accent • 500/750ml</p>
+        <a class="btn" href="https://wa.me/919612301584">Get This Design</a>
       </div>
+
     </div>
 
-    <div class="info-row">
-      <div style="width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.03);display:grid;place-items:center">☀️</div>
-      <div>
-        <strong>UV resistance</strong>
-        <p>Outdoor-safe finishes available for long-term color retention.</p>
-      </div>
-    </div>
+  </div>
+</section>
 
-    <div class="info-row">
-      <div style="width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.03);display:grid;place-items:center">⚡</div>
-      <div>
-        <strong>Mockup turnaround</strong>
-        <p>Mockups in 24 hours; revisions fast on request.</p>
-      </div>
-    </div>
+<section>
+  <div class="wrap">
+    <h2>How It Works</h2>
 
-    <div class="info-row">
-      <div style="width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.03);display:grid;place-items:center">🚚</div>
-      <div>
-        <strong>Delivery timeline</strong>
-        <p>Production 5–8 business days; delivery 2–5 business days nationwide.</p>
-      </div>
+    <div class="card small">
+      1) Choose bottle type<br><br>
+      2) Send your logo<br><br>
+      3) Approve mockup (24hrs)<br><br>
+      4) Printed & delivered nationwide
     </div>
   </div>
-</div>
+</section>
 
-  </section>  <!-- WHY CHOOSE US -->  <section aria-labelledby="why-title">
-    <h2 id="why-title">Why Choose Us</h2>
-    <p class="small" style="margin-top:8px;color:var(--muted)">Engineered for quality, speed and brand impact.</p><div class="features-grid">
-  <div class="feature-card">
-    <div class="feature-ico">🔧</div>
-    <div>
-      <div style="font-weight:900">Premium-grade materials</div>
-      <div class="small" style="margin-top:6px;color:var(--muted)">Top-tier stainless & BPA-free plastics for durability.</div>
-    </div>
+<section>
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p class="small">We reply instantly on WhatsApp.</p>
+    <a href="https://wa.me/919612301584" class="btn">Chat on WhatsApp</a>
   </div>
+</section>
 
-  <div class="feature-card">
-    <div class="feature-ico">⚡</div>
-    <div>
-      <div style="font-weight:900">Fast mockups</div>
-      <div class="small" style="margin-top:6px;color:var(--muted)">Realistic previews in 24 hours.</div>
-    </div>
-  </div>
+<!-- Floating WA -->
+<a href="https://wa.me/919612301584" class="wa">
+  💬
+</a>
 
-  <div class="feature-card">
-    <div class="feature-ico">⬇️</div>
-    <div>
-      <div style="font-weight:900">Low MOQ</div>
-      <div class="small" style="margin-top:6px;color:var(--muted)">Minimums starting 20–30 units depending on model.</div>
-    </div>
-  </div>
-</div>
-
-  </section>  <!-- USE CASES -->  <section aria-labelledby="use-title">
-    <h2 id="use-title">Use Cases</h2>
-    <p class="small" style="margin-top:8px;color:var(--muted)">Cafes, restaurants, gyms, events, corporates and merch drops.</p><div class="use-grid">
-  <div class="use-card"><div style="width:56px;height:56px;border-radius:10px;background:rgba(255,255,255,0.03);display:grid;place-items:center">☕</div><div style="margin-left:10px"><div style="font-weight:900">Cafes</div><div class="small" style="color:var(--muted);margin-top:6px">Retail bottles that increase daily impressions.</div></div></div>
-
-  <div class="use-card"><div style="width:56px;height:56px;border-radius:10px;background:rgba(255,255,255,0.03);display:grid;place-items:center">🍽️</div><div style="margin-left:10px"><div style="font-weight:900">Restaurants</div><div class="small" style="color:var(--muted);margin-top:6px">Signature gifting & merchandising.</div></div></div>
-
-  <div class="use-card"><div style="width:56px;height:56px;border-radius:10px;background:rgba(255,255,255,0.03);display:grid;place-items:center">🏋️</div><div style="margin-left:10px"><div style="font-weight:900">Gyms</div><div class="small" style="color:var(--muted);margin-top:6px">Durable bottles for training & branding.</div></div></div>
-</div>
-
-  </section>  <!-- FAQ -->  <section id="faqs" aria-labelledby="faqs-title">
-    <h2 id="faqs-title">Frequently Asked Questions</h2>
-    <p class="small" style="margin-top:8px;color:var(--muted)">Tap to open — instant answers, smooth transitions.</p><div class="accordion" role="list" aria-label="FAQs" style="margin-top:12px">
-  <div class="acc-item" role="listitem">
-    <input id="q1" type="checkbox">
-    <label for="q1">What is the minimum order quantity? <span class="chev">▾</span></label>
-    <div class="answer"><p class="small" style="color:var(--muted)">MOQs vary by model; typically 20–30 units. Contact via WhatsApp for exact pricing.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q2" type="checkbox">
-    <label for="q2">How quickly do I get a mockup? <span class="chev">▾</span></label>
-    <div class="answer"><p class="small" style="color:var(--muted)">Mockups in 24 hours. Two revision rounds included for most orders.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q3" type="checkbox">
-    <label for="q3">Can I send my own design files? <span class="chev">▾</span></label>
-    <div class="answer"><p class="small" style="color:var(--muted)">Yes — SVG, AI, EPS (vector preferred) or high-res transparent PNG.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q4" type="checkbox">
-    <label for="q4">What are the production & delivery times? <span class="chev">▾</span></label>
-    <div class="answer"><p class="small" style="color:var(--muted)">Production 5–8 business days after mockup approval. Delivery typically 2–5 days nationwide.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q5" type="checkbox">
-    <label for="q5">Do you provide custom packaging? <span class="chev">▾</span></label>
-    <div class="answer"><p class="small" style="color:var(--muted)">Yes — branded boxes and gift packaging options available as add-ons.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q6" type="checkbox">
-    <label for="q6">Are prints dishwasher-safe? <span class="chev">▾</span></label>
-    <div class="answer"><p class="small" style="color:var(--muted)">Hand-wash recommended for longevity. Certain finishes tolerate dishwashers — confirm per model.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q7" type="checkbox">
-    <label for="q7">Is bulk pricing available? <span class="chev">▾</span></label>
-    <div class="answer"><p class="small" style="color:var(--muted)">Yes — volume discounts applied for larger runs (100+ units). Message on WhatsApp to get a quote.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q8" type="checkbox">
-    <label for="q8">What files should I send? <span class="chev">▾</span></label>
-    <div class="answer"><p class="small" style="color:var(--muted)">Vector files (SVG/AI/EPS) are ideal. If not available, high-res PNG (300dpi) works.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q9" type="checkbox">
-    <label for="q9">Can I edit the mockup? <span class="chev">▾</span></label>
-    <div class="answer"><p class="small" style="color:var(--muted)">Yes — one to two small revisions are usually included depending on the package.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q10" type="checkbox">
-    <label for="q10">How do I place an order? <span class="chev">▾</span></label>
-    <div class="answer"><p class="small" style="color:var(--muted)">Click any 'Get this custom design' or 'Get a Quote on WhatsApp' and message us your specs.</p></div>
-  </div>
-</div>
-
-  </section>  <!-- CONTACT -->  <section id="contact" aria-labelledby="contact-title">
-    <h2 id="contact-title">Contact & Order</h2>
-    <p class="small" style="margin-top:8px;color:var(--muted)">Start a chat for quotes, mockups or custom requests.</p><div class="contact-grid">
-  <div>
-    <div class="contact-chips">
-      <div class="small" style="padding:10px;border-radius:10px;background:rgba(255,255,255,0.02)"><strong>Phone:</strong> +91 96123 01584</div>
-      <div class="small" style="padding:10px;border-radius:10px;background:rgba(255,255,255,0.02)"><strong>Email:</strong> hello@dharma.studio</div>
-      <div class="small" style="padding:10px;border-radius:10px;background:rgba(255,255,255,0.02)"><strong>Location:</strong> India</div>
-    </div>
-
-    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn primary" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
-      <a class="btn outline" href="#designs">Browse Designs</a>
-    </div>
-  </div>
-
-  <div class="contact-cta-box">
-    <p class="small" style="margin:0;color:var(--muted)">Tell us your quantity, bottle type & logo. We reply instantly on WhatsApp.</p>
-    <a class="btn primary" style="width:100%;justify-content:center" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">Get Quote on WhatsApp</a>
-  </div>
-</div>
-
-  </section>  <!-- FOOTER -->  <footer>
-    <div class="footer-links" style="margin-bottom:8px">
-      <a href="#designs">Designs</a> &nbsp;•&nbsp;
-      <a href="#customization">Customization</a> &nbsp;•&nbsp;
-      <a href="#how">How It Works</a> &nbsp;•&nbsp;
-      <a href="#faqs">FAQs</a> &nbsp;•&nbsp;
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="small" style="color:var(--muted)">© 2025 Dharma Bottle Studio • hello@dharma.studio • +91 96123 01584</div>
-  </footer>
-</main><!-- FLOATING WHATSAPP --><a class="float-wa" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24" width="34" height="34" fill="#2b0f07" aria-hidden="true">
-    <path d="M12.04 2C6.59 2 2.21 6.37 2.21 11.82c0 2.09.63 4.04 1.82 5.73L2 22l4.58-1.96c1.61.88 3.43 1.34 5.3 1.34 5.45 0 9.82-4.37 9.82-9.82S17.49 2 12.04 2zm0 17.87c-1.66 0-3.29-.45-4.71-1.29l-.34-.2-2.72 1.16.58-2.86-.19-.29c-1.09-1.55-1.67-3.38-1.67-5.29 0-5.06 4.12-9.18 9.18-9.18s9.18 4.12 9.18 9.18-4.12 9.18-9.18 9.18zm5.12-6.87c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.09-.17.19-.33.21-.61.07-.28-.14-1.18-.43-2.24-1.37-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.33.42-.5.14-.17.19-.28.28-.47.09-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49-.17-.01-.36-.01-.55-.01-.19 0-.5.07-.76.36-.26.28-1 1-1 2.43 0 1.43 1.03 2.81 1.18 3 .14.19 2.03 3.21 5.03 4.5.7.3 1.24.48 1.66.61.7.22 1.34.19 1.84.12.56-.08 1.66-.68 1.9-1.33.23-.65.23-1.21.16-1.33-.07-.11-.25-.18-.52-.32z"></path>
-  </svg>
-</a><!-- SCRIPTS --><script>
-  // Mobile menu controls (FIX #1)
-  const menuOverlay = document.getElementById('menuOverlay');
-  const openMenuBtn = document.getElementById('openMenu');
-  const closeMenuBtn = document.getElementById('closeMenu');
-
-  function openMenu(){
-    if(!menuOverlay) return;
-    menuOverlay.style.display = 'block';
-    requestAnimationFrame(()=> {
-      const panel = menuOverlay.querySelector('.menu-panel');
-      panel.classList.add('show');
-      menuOverlay.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
-    });
-  }
-  function closeMenu(){
-    if(!menuOverlay) return;
-    const panel = menuOverlay.querySelector('.menu-panel');
-    panel.classList.remove('show');
-    menuOverlay.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-    setTimeout(()=> menuOverlay.style.display = 'none', 260);
-  }
-
-  if(openMenuBtn) openMenuBtn.addEventListener('click', openMenu);
-  if(closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
-  if(menuOverlay) menuOverlay.addEventListener('click', (e)=> { if(e.target === menuOverlay) closeMenu(); });
-
-  // Auto-close mobile menu when resizing to desktop (FIX #1)
-  let lastW = window.innerWidth;
-  window.addEventListener('resize', ()=>{
-    const w = window.innerWidth;
-    if(lastW < 900 && w >= 900) closeMenu();
-    lastW = w;
-  });
-
-  // Accordion accessibility & tap area
-  document.querySelectorAll('.acc-item label').forEach(l => l.style.padding = '18px');
-
-  // Close menu on Escape
-  document.addEventListener('keydown', (e)=> { if(e.key === 'Escape') closeMenu(); });
-
-  // Ensure hamburger visibility on mobile: force style if needed (extra safeguard)
-  function enforceHamburger(){
-    if(window.innerWidth <= 899){
-      document.querySelectorAll('nav.primary').forEach(n=> n.style.display='none');
-      const hb = document.querySelector('.hamburger');
-      if(hb) hb.style.display = 'block';
-    } else {
-      document.querySelectorAll('nav.primary').forEach(n=> n.style.display='flex');
-      const hb = document.querySelector('.hamburger');
-      if(hb) hb.style.display = 'none';
-      closeMenu();
-    }
-  }
-  enforceHamburger();
-  window.addEventListener('orientationchange', enforceHamburger);
-  window.addEventListener('resize', enforceHamburger);
-</script></body>
+</body>
 </html>
