@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1" />
   <title>Custom Bottle Prints — Brand Bottles for Cafes & Restaurants</title>
   <meta name="description" content="Get custom-printed water bottles for your cafe, restaurant or brand. Fast turnaround, aesthetic designs and low MOQ." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,81 +11,129 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f1724;
-      --card:#0b1320;
+      --bg:#071026;
+      --card:rgba(255,255,255,0.03);
       --muted:#9aa4b2;
       --accent:#ff7a59;
-      --glass: rgba(255,255,255,0.04);
+      --accent-2:#ff9b79;
+      --glass: rgba(255,255,255,0.03);
       --glass-2: rgba(255,255,255,0.02);
+      --max-width:1100px;
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
       color-scheme: dark;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#071026 0%, #081229 55%, #06121b 100%);color:#e6eef6;line-height:1.45}
-    .container{max-width:1100px;margin:40px auto;padding:24px}header{display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:12px}
-.logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,#ffe5d3,#ffd2c2);display:grid;place-items:center;color:#08202b;font-weight:800;font-size:18px}
-h1{font-size:28px;margin:0}
-p.lead{color:var(--muted);margin:6px 0 0}
+    }*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#071026 0%, #081229 55%, #06121b 100%);color:#e6eef6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
 
-/* Hero */
-.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:28px}
-.hero-card{background:var(--card);padding:28px;border-radius:14px;backdrop-filter:blur(6px);box-shadow:0 8px 30px rgba(2,6,23,0.7)}
-.hero-cta{display:flex;gap:12px;margin-top:18px}
-.btn{background:linear-gradient(90deg,var(--accent),#ff9b79);border:none;padding:12px 16px;border-radius:10px;color:#071022;font-weight:700;cursor:pointer;text-decoration:none}
-.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px 14px;border-radius:10px;color:var(--muted);text-decoration:none}
+.wrap{max-width:var(--max-width);margin:18px auto;padding:18px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#ffe5d3,#ffd2c2);display:grid;place-items:center;color:#08202b;font-weight:800;font-size:18px}
+h1{font-size:20px;margin:0}
+p.lead{color:var(--muted);margin:4px 0 0;font-size:13px}
+
+nav{display:flex;gap:8px;align-items:center}
+.btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;padding:10px 14px;border-radius:12px;color:#071022;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 12px;border-radius:12px;color:var(--muted);text-decoration:none}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:center;margin-top:18px}
+.hero-card{background:transparent;padding:14px;border-radius:12px}
+.hero-card h2{font-size:22px;margin:0 0 8px}
+.hero-card .muted{color:var(--muted);font-size:14px}
 
 /* bottle panel */
-.bottle-wrap{position:relative;border-radius:16px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.2));padding:18px;display:grid;place-items:center}
-.bottle-wrap img{max-width:100%;height:auto;display:block;border-radius:10px}
-.cta-overlay{position:absolute;left:12px;bottom:12px;background:linear-gradient(90deg, rgba(0,0,0,0.55), rgba(0,0,0,0.35));padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04)}
+.bottle-wrap{position:relative;border-radius:14px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));padding:12px;display:grid;place-items:center;border:1px solid rgba(255,255,255,0.02)}
+.bottle-wrap img{width:100%;height:auto;display:block;border-radius:10px;object-fit:cover}
+.cta-overlay{position:absolute;left:12px;bottom:12px;background:linear-gradient(90deg, rgba(0,0,0,0.6), rgba(0,0,0,0.35));padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04)}
 .cta-overlay a{color:#fff;font-weight:700;text-decoration:none}
 
 /* sections */
-section{margin:48px 0}
+section{margin:30px 0}
 .section-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.section-head h2{margin:0;font-size:20px}
-.muted{color:var(--muted);font-size:14px}
+.section-head h2{margin:0;font-size:18px}
+.muted{color:var(--muted);font-size:13px}
 
 /* gallery */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
-.card{background:var(--glass);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);overflow:hidden;position:relative}
-.card img{width:100%;height:260px;object-fit:cover;border-radius:10px}
-.card .meta{padding:10px 6px}
-.badge{display:inline-block;background:rgba(0,0,0,0.35);padding:6px 8px;border-radius:8px;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.card{background:var(--glass);padding:10px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);overflow:hidden;position:relative}
+.card img{width:100%;height:180px;object-fit:cover;border-radius:8px}
+.card .meta{padding:8px 6px}
+.badge{display:inline-block;background:rgba(0,0,0,0.35);padding:6px 8px;border-radius:8px;font-size:12px}
 .overlay-cta{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:12px;pointer-events:none}
-.overlay-cta a{pointer-events:auto;background:linear-gradient(90deg,#ff7a59,#ff9b79);padding:10px 12px;border-radius:10px;color:#071022;font-weight:800;text-decoration:none;box-shadow:0 8px 30px rgba(0,0,0,0.5)}
+.overlay-cta a{pointer-events:auto;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 12px;border-radius:10px;color:#071022;font-weight:800;text-decoration:none;box-shadow:0 10px 30px rgba(0,0,0,0.5)}
 
 /* how */
-.steps{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
-.step{flex:1 1 180px;background:var(--glass-2);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-.step h4{margin:0 0 8px}
+.steps{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.step{flex:1 1 160px;background:var(--glass-2);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+.step h4{margin:0 0 6px;font-size:15px}
 
 /* customize */
-.options{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
-.option{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+.options{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.option{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.04));padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);font-size:14px}
 
 /* reviews */
-.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:14px}
-.review{background:var(--card);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-.review .who{display:flex;gap:12px;align-items:center}
-.avatar{width:56px;height:56px;border-radius:999px;overflow:hidden;flex-shrink:0}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.review{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.review .who{display:flex;gap:10px;align-items:center}
+.avatar{width:48px;height:48px;border-radius:999px;overflow:hidden;flex-shrink:0}
 .avatar img{width:100%;height:100%;object-fit:cover}
-.name{font-weight:700}
+.name{font-weight:700;font-size:15px}
 .stars{color:#ffd36b}
 
-footer{margin-top:40px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));display:flex;justify-content:space-between;align-items:center}
+/* contact */
+.contact-cta{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
 
-/* responsive */
-@media (max-width:880px){
-  .hero{grid-template-columns:1fr;}
-  .bottle-wrap img{max-height:420px}
+footer{margin-top:18px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));display:flex;justify-content:space-between;align-items:center;font-size:13px}
+
+/* mobile-specific tweaks */
+@media (max-width:960px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .reviews{grid-template-columns:repeat(2,1fr)}
+  .hero{grid-template-columns:1fr 320px}
+  .card img{height:200px}
 }
+@media (max-width:640px){
+  .wrap{padding:12px;margin:8px}
+  header{flex-direction:row;align-items:flex-start}
+  nav{display:flex;gap:8px}
+  .hero{grid-template-columns:1fr;gap:12px}
+  .hero-card h2{font-size:20px}
+  .hero-card p.lead{font-size:13px}
+
+  /* make CTA easy to tap */
+  .btn{padding:14px;border-radius:14px;font-size:15px;width:100%;text-align:center}
+  .btn-ghost{width:100%;padding:12px;border-radius:14px}
+
+  .bottle-wrap{padding:8px}
+  .bottle-wrap img{max-height:420px;width:100%;height:auto;border-radius:8px}
+
+  .grid{grid-template-columns:1fr;gap:12px}
+  .reviews{grid-template-columns:1fr}
+
+  .overlay-cta a{width:90%;display:block;text-align:center}
+
+  .steps{flex-direction:column}
+  .options{flex-direction:column}
+  .contact-cta{flex-direction:column}
+
+  footer{flex-direction:column;gap:8px;align-items:flex-start}
+
+  /* sticky bottom CTA for mobile */
+  .mobile-fab{position:fixed;right:16px;bottom:18px;background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:12px 14px;border-radius:50px;box-shadow:0 14px 40px rgba(0,0,0,0.5);z-index:60}
+  .mobile-fab a{color:#071022;font-weight:800;text-decoration:none}
+
+  /* increase tappable area for images */
+  .card{padding-bottom:56px}
+}
+
+/* accessibility */
+.btn:focus,.btn-ghost:focus,.overlay-cta a:focus{outline:3px solid rgba(255,122,89,0.18);outline-offset:3px}
 
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="wrap" id="top">
     <header>
       <div class="brand">
         <div class="logo">WB</div>
@@ -93,29 +141,32 @@ footer{margin-top:40px;padding:18px;border-radius:12px;background:linear-gradien
           <h1>BrandBottle — Custom Printed Water Bottles</h1>
           <p class="lead">Aesthetic, durable bottle prints for cafes, restaurants & brands. Low MOQ, quick delivery.</p>
         </div>
-      </div>
-      <nav>
-        <a class="btn-ghost" href="#designs">See Designs</a>
-        <a class="btn" href="https://wa.me/919612301584?text=Hi%2C%20I%27m%20interested%20in%20custom%20bottles" target="_blank">WhatsApp Us</a>
-      </nav>
-    </header><!-- HERO (section 1) -->
+      </div><nav>
+    <a class="btn-ghost" href="#designs">Designs</a>
+    <a class="btn" href="https://wa.me/919612301584?text=Hi%2C%20I%27m%20interested%20in%20custom%20bottles" target="_blank">WhatsApp</a>
+  </nav>
+</header>
+
+<!-- HERO (section 1) -->
 <section id="hero" class="hero">
   <div class="hero-card">
     <h2>Make your brand sip-worthy.</h2>
     <p class="muted">Turn simple bottles into brand touchpoints. Perfect for cafes, hotels, events and merch drops.</p>
 
-    <div class="hero-cta">
+    <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
       <a class="btn" href="https://wa.me/919612301584?text=Hi%2C%20I%27d%20like%20a%20quote%20for%20custom%20bottles" target="_blank">Get a Quote</a>
       <a class="btn-ghost" href="#customize">How it Works</a>
     </div>
 
-    <div style="margin-top:18px;color:var(--muted);font-size:14px">
+    <div style="margin-top:12px;color:var(--muted);font-size:13px">
       <strong>Fast mockups:</strong> Send your logo & we’ll place it on the bottle preview. No design skills needed.
     </div>
   </div>
 
-  <aside class="bottle-wrap">
-    <img src="https://i.ibb.co/MkdCJqt7/il-570x-N-5966540553-4fue.jpg" alt="Bottle design sample">
+  <aside class="bottle-wrap" aria-hidden="false">
+    <a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20(From%20homepage%20bottle)" target="_blank" style="display:block;width:100%;height:100%">
+      <img src="https://i.ibb.co/MkdCJqt7/il-570x-N-5966540553-4fue.jpg" alt="Bottle design sample">
+    </a>
     <div class="cta-overlay">
       <a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20(From%20homepage%20bottle)" target="_blank">Get this custom design</a>
     </div>
@@ -129,57 +180,64 @@ footer{margin-top:40px;padding:18px;border-radius:12px;background:linear-gradien
     <div class="muted">Tap any bottle to start a WhatsApp chat and order.</div>
   </div>
 
-  <div class="grid">
+  <div class="grid" aria-live="polite">
+    <!-- Design 1 -->
     <div class="card">
-      <img src="https://i.ibb.co/MkdCJqt7/il-570x-N-5966540553-4fue.jpg" alt="design-1">
+      <a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%201" target="_blank" style="display:block">
+        <img src="https://i.ibb.co/MkdCJqt7/il-570x-N-5966540553-4fue.jpg" alt="design-1">
+      </a>
       <div class="meta">
         <div style="display:flex;justify-content:space-between;align-items:center">
-          <div class="badge">Matte White — 500ml</div>
+          <div class="badge">Matte White • 500ml</div>
           <div class="muted">MOQ 24</div>
         </div>
       </div>
-      <div class="overlay-cta"><a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%201" target="_blank">Get this custom design</a></div>
+      <div class="overlay-cta"><a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%201" target="_blank">Get this design</a></div>
     </div>
 
+    <!-- Design 2 -->
     <div class="card">
-      <img src="https://i.ibb.co/G4dLYv65/images-5.jpg" alt="design-2">
-      <div class="meta">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div class="badge">Stainless — 600ml</div>
-          <div class="muted">MOQ 12</div>
-        </div>
-      </div>
-      <div class="overlay-cta"><a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%202" target="_blank">Get this custom design</a></div>
+      <a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%202" target="_blank" style="display:block">
+        <img src="https://i.ibb.co/G4dLYv65/images-5.jpg" alt="design-2">
+      </a>
+      <div class="meta"><div style="display:flex;justify-content:space-between;align-items:center"><div class="badge">Stainless • 600ml</div><div class="muted">MOQ 12</div></div></div>
+      <div class="overlay-cta"><a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%202" target="_blank">Get this design</a></div>
     </div>
 
+    <!-- Design 3 -->
     <div class="card">
-      <img src="https://i.ibb.co/pBCJkrf0/753e8df0-b9ea-46bb-8dac-8a17d93c2c3b.webp" alt="design-3">
-      <div class="meta">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div class="badge">Glass look — 500ml</div>
-          <div class="muted">MOQ 18</div>
-        </div>
-      </div>
-      <div class="overlay-cta"><a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%203" target="_blank">Get this custom design</a></div>
+      <a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%203" target="_blank" style="display:block">
+        <img src="https://i.ibb.co/pBCJkrf0/753e8df0-b9ea-46bb-8dac-8a17d93c2c3b.webp" alt="design-3">
+      </a>
+      <div class="meta"><div style="display:flex;justify-content:space-between;align-items:center"><div class="badge">Glass-look • 500ml</div><div class="muted">MOQ 18</div></div></div>
+      <div class="overlay-cta"><a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%203" target="_blank">Get this design</a></div>
     </div>
 
-    <!-- sample extras to show variety -->
+    <!-- Design 4 -->
     <div class="card">
-      <img src="https://source.unsplash.com/collection/1891731/800x800" alt="design-4">
-      <div class="meta"><div style="display:flex;justify-content:space-between;align-items:center"><div class="badge">Label Print — 750ml</div><div class="muted">MOQ 36</div></div></div>
-      <div class="overlay-cta"><a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%204" target="_blank">Get this custom design</a></div>
+      <a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%204" target="_blank" style="display:block">
+        <img src="https://source.unsplash.com/collection/1891731/800x800" alt="design-4">
+      </a>
+      <div class="meta"><div style="display:flex;justify-content:space-between;align-items:center"><div class="badge">Label Print • 750ml</div><div class="muted">MOQ 36</div></div></div>
+      <div class="overlay-cta"><a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%204" target="_blank">Get this design</a></div>
     </div>
 
+    <!-- Design 5 -->
     <div class="card">
-      <img src="https://source.unsplash.com/featured/?bottle,design,product" alt="design-5">
-      <div class="meta"><div style="display:flex;justify-content:space-between;align-items:center"><div class="badge">Eco Print — 500ml</div><div class="muted">MOQ 20</div></div></div>
-      <div class="overlay-cta"><a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%205" target="_blank">Get this custom design</a></div>
+      <a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%205" target="_blank" style="display:block">
+        <img src="https://source.unsplash.com/featured/?bottle,design,product" alt="design-5">
+      </a>
+      <div class="meta"><div style="display:flex;justify-content:space-between;align-items:center"><div class="badge">Eco Print • 500ml</div><div class="muted">MOQ 20</div></div></div>
+      <div class="overlay-cta"><a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%205" target="_blank">Get this design</a></div>
     </div>
 
+    <!-- Design 6 -->
     <div class="card">
-      <img src="https://source.unsplash.com/featured/?cafe,branding,product" alt="design-6">
-      <div class="meta"><div style="display:flex;justify-content:space-between;align-items:center"><div class="badge">Cafe Series — 500ml</div><div class="muted">MOQ 12</div></div></div>
-      <div class="overlay-cta"><a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%206" target="_blank">Get this custom design</a></div>
+      <a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%206" target="_blank" style="display:block">
+        <img src="https://source.unsplash.com/featured/?cafe,branding,product" alt="design-6">
+      </a>
+      <div class="meta"><div style="display:flex;justify-content:space-between;align-items:center"><div class="badge">Cafe Series • 500ml</div><div class="muted">MOQ 12</div></div></div>
+      <div class="overlay-cta"><a href="https://wa.me/919612301584?text=I%20want%20this%20custom%20design%20-%20Design%206" target="_blank">Get this design</a></div>
     </div>
   </div>
 </section>
@@ -187,11 +245,11 @@ footer{margin-top:40px;padding:18px;border-radius:12px;background:linear-gradien
 <!-- HOW IT WORKS (section 3) -->
 <section id="how">
   <div class="section-head"><h2>How it works</h2><div class="muted">Simple. Fast. No hassle.</div></div>
-  <div class="steps">
-    <div class="step"><h4>1. Choose a bottle</h4><div class="muted">Pick material & size from our gallery.</div></div>
-    <div class="step"><h4>2. Send your logo</h4><div class="muted">Upload on WhatsApp — we handle mockups.</div></div>
-    <div class="step"><h4>3. Approve the mockup</h4><div class="muted">We send a free mockup. Ask edits.</div></div>
-    <div class="step"><h4>4. Production</h4><div class="muted">Printed, checked & packed. Delivery nationwide.</div></div>
+  <div class="steps" role="list">
+    <div class="step" role="listitem"><h4>1. Choose a bottle</h4><div class="muted">Pick material & size from our gallery.</div></div>
+    <div class="step" role="listitem"><h4>2. Send your logo</h4><div class="muted">Upload on WhatsApp — we handle mockups.</div></div>
+    <div class="step" role="listitem"><h4>3. Approve the mockup</h4><div class="muted">We send a free mockup. Ask edits.</div></div>
+    <div class="step" role="listitem"><h4>4. Production</h4><div class="muted">Printed, checked & packed. Delivery nationwide.</div></div>
   </div>
 </section>
 
@@ -209,7 +267,7 @@ footer{margin-top:40px;padding:18px;border-radius:12px;background:linear-gradien
 
 <!-- REVIEWS (section 5) -->
 <section id="reviews">
-  <div class="section-head"><h2>What customers say</h2><div class="muted">Real brands, real reactions — sample reviews (placeholder names/images you can change later).</div></div>
+  <div class="section-head"><h2>What customers say</h2><div class="muted">Real brands, real reactions — placeholder names/images you can change later.</div></div>
   <div class="reviews">
     <div class="review">
       <div class="who">
@@ -252,12 +310,12 @@ footer{margin-top:40px;padding:18px;border-radius:12px;background:linear-gradien
 <!-- CONTACT / CTA (section 6) -->
 <section id="contact">
   <div class="section-head"><h2>Ready to print?</h2><div class="muted">Click below to start a WhatsApp chat with our sales rep.</div></div>
-  <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap">
+  <div class="contact-cta">
     <a class="btn" href="https://wa.me/919612301584?text=Hello%2C%20I%20want%20to%20order%20custom%20bottles" target="_blank">Chat on WhatsApp</a>
     <a class="btn-ghost" href="#designs">Browse designs</a>
   </div>
 
-  <div style="margin-top:18px;color:var(--muted);font-size:13px">Phone: +91 96123 01584 • Email: hello@brandbottle.example (placeholder)</div>
+  <div style="margin-top:12px;color:var(--muted);font-size:13px">Phone: +91 96123 01584 • Email: hello@brandbottle.example (placeholder)</div>
 </section>
 
 <footer>
@@ -265,9 +323,15 @@ footer{margin-top:40px;padding:18px;border-radius:12px;background:linear-gradien
   <div class="muted">Designed to look clean & aesthetic — change text/images freely.</div>
 </footer>
 
-  </div>  <!-- small helper: scroll to section when nav used (smooth) -->  <script>
+  </div>  <!-- MOBILE FAB WhatsApp -->  <div class="mobile-fab" aria-hidden="false">
+    <a href="https://wa.me/919612301584?text=Hi%2C%20I%27m%20interested%20in%20custom%20bottles" target="_blank">WhatsApp • Order</a>
+  </div>  <script>
+    // smooth scroll for internal links
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',e=>{e.preventDefault();const id=a.getAttribute('href');if(id&&id!=="#"){document.querySelector(id).scrollIntoView({behavior:'smooth',block:'start'});}})
+      a.addEventListener('click',e=>{e.preventDefault();const id=a.getAttribute('href');if(id&&id!="#"){const el=document.querySelector(id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'})}}})
     })
+
+    // ensure images are clickable on mobile and have decent hit area
+    document.querySelectorAll('.card a').forEach(a=>{a.addEventListener('touchstart',()=>{} )})
   </script></body>
 </html>
