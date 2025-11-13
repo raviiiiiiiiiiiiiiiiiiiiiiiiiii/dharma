@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8" />
@@ -13,564 +12,184 @@
     --accent:#FF784B;
     --card-shadow: 0 18px 40px rgba(3,6,12,0.6);
     --card-radius:24px;
-    --gap:18px;
     --transition:220ms;
     --max-width:1200px;
-  }/* Base / mobile-first */ *{box-sizing:border-box} html,body{height:100%} body{ margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: radial-gradient(800px 360px at 10% 10%, rgba(255,120,75,0.02), transparent 6%), radial-gradient(600px 300px at 90% 90%, rgba(255,120,75,0.015), transparent 4%), var(--bg); color:#eef3f4; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; line-height:1.45; scroll-behavior:smooth; -webkit-tap-highlight-color: transparent; }
-
-a{color:inherit;text-decoration:none} img{display:block;max-width:100%;height:auto;border-radius:16px}
-
-/* Layout container */ .wrap{ width:100%; max-width:var(--max-width); margin:0 auto; padding-left:20px; padding-right:20px; }
-
-/* Sticky header */ header{ position:sticky;top:0;z-index:80; backdrop-filter: blur(6px); background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-bottom:1px solid rgba(255,255,255,0.03); } .nav-inner{ display:flex;align-items:center;gap:12px; padding:14px 6px; max-width:var(--max-width); margin:0 auto; } .brand{ display:flex;align-items:center;gap:12px;font-weight:800; } .brand-badge{ width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff6a39);display:grid;place-items:center;font-weight:900;color:#2b0f07; } nav.primary{margin-left:auto;display:flex;align-items:center;gap:12px} nav.primary a{color:var(--muted);padding:10px 12px;border-radius:12px;font-weight:600;font-size:15px} nav.primary a:hover{color:#fff;transform:translateY(-3px);transition:var(--transition) ease} .cta-whatsapp{ display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:var(--accent);color:#2b0f07;font-weight:800;font-size:15px;box-shadow:0 12px 30px rgba(255,120,75,0.12) }
-
-/* Hamburger (mobile) */ .hamburger{display:flex;margin-left:12px} .hamburger button{background:transparent;border:0;padding:10px;border-radius:10px;color:var(--muted)} .hamburger svg{width:22px;height:22px}
-
-/* Mobile menu overlay */ .menu-overlay{ position:fixed;inset:0;z-index:90;display:none;align-items:flex-start;justify-content:flex-end;background:linear-gradient(180deg,rgba(2,4,6,0.6),rgba(2,4,6,0.6)); } .menu-panel{ width:100%;max-width:420px;height:100%;background:linear-gradient(180deg,#0f1315,#0c0f11);padding:28px;border-left:1px solid rgba(255,255,255,0.02); transform:translateX(28px);opacity:0;transition:transform var(--transition) ease,opacity var(--transition) ease; display:flex;flex-direction:column;gap:18px; } .menu-panel.show{transform:translateX(0);opacity:1} .menu-top{display:flex;align-items:center;justify-content:space-between} .menu-links{display:flex;flex-direction:column;gap:8px;margin-top:10px} .menu-links a{padding:14px;border-radius:12px;color:var(--muted);font-weight:700} .menu-links a:hover{background:rgba(255,255,255,0.02);color:#fff}
-
-/* Section wide spacing (vertical 80-120px) on mobile use 80 */ section{ padding-top:80px; padding-bottom:80px; } @media(min-width:900px){ section{padding-top:100px;padding-bottom:100px} } @media(min-width:1200px){ section{padding-top:120px;padding-bottom:120px} }
-
-/* HERO */ .hero{ display:flex;flex-direction:column;gap:20px;align-items:stretch; background:linear-gradient(180deg, rgba(255,120,75,0.02), transparent 40%); border-radius:20px;padding:28px;box-shadow:var(--card-shadow);overflow:hidden; } .hero-grid{display:grid;grid-template-columns:1fr;gap:20px;align-items:center} .eyebrow{color:var(--muted);font-weight:700;font-size:13px;letter-spacing:0.6px} h1{font-size:28px;margin:6px 0;line-height:1.02;letter-spacing:-0.2px} .hero-sub{color:var(--muted);font-size:15px;max-width:720px} .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px} .btn{ display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:12px;font-weight:800;font-size:15px;cursor:pointer;transition:transform var(--transition) ease,box-shadow var(--transition) ease; border:0; } .btn.primary{background:var(--accent);color:#2b0f07;box-shadow:0 14px 36px rgba(255,120,75,0.14)} .btn.primary:hover{transform:translateY(-6px)} .btn.outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)} .hero-art{display:flex;justify-content:center;align-items:center} .hero-art img{width:220px;height:auto;border-radius:20px;box-shadow:0 18px 40px rgba(2,6,12,0.6)}
-
-@media(min-width:900px){ .hero{padding:40px} .hero-grid{grid-template-columns:1fr 420px} h1{font-size:44px} .hero-art img{width:340px} }
-
-/* DESIGNS */ .section-head{display:flex;flex-direction:column;gap:8px} .section-head h2{font-size:20px;margin:0} .design-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px} .design-card{ background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02)); border-radius:var(--card-radius);overflow:hidden;padding:14px;display:flex;gap:14px;align-items:center;box-shadow:var(--card-shadow);transition:transform var(--transition); } .design-card:hover{transform:translateY(-8px)} .design-thumb{width:110px;flex-shrink:0;border-radius:16px;overflow:hidden} .design-info{flex:1} .design-title{font-weight:800;font-size:16px} .design-meta{color:var(--muted);font-size:13px;margin-top:8px} .design-action a{display:inline-flex;padding:10px 12px;border-radius:12px;background:var(--accent);color:#2b0f07;font-weight:800}
-
-@media(min-width:900px){ .design-grid{grid-template-columns:repeat(3,1fr)} .design-card{flex-direction:column;align-items:stretch;padding:0} .design-thumb{width:100%;height:320px} .design-info{padding:18px} }
-
-/* HOW IT WORKS */ .how-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px} .step-card{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:16px;border-radius:20px;box-shadow:var(--card-shadow);transition:transform var(--transition)} .step-card:hover{transform:translateY(-6px)} .step-ico{width:60px;height:60px;border-radius:14px;background:rgba(255,255,255,0.02);display:grid;place-items:center;font-size:22px} .step-title{font-weight:800} .step-desc{color:var(--muted);font-size:14px;margin-top:6px}
-
-@media(min-width:900px){ .how-grid{grid-template-columns:repeat(2,1fr)} }
-
-/* CUSTOMIZATION */ .pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px} .pill{padding:10px 14px;background:rgba(255,255,255,0.02);border-radius:999px;font-weight:700;color:var(--muted);font-size:14px} .info-rows{display:grid;gap:12px;margin-top:14px} .info-row{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:16px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));box-shadow:0 10px 30px rgba(2,6,12,0.45)} .info-row strong{display:block;font-weight:800} .info-row p{margin:6px 0 0;color:var(--muted);font-size:14px}
-
-/* WHY CHOOSE US */ .features-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px} .feature-card{display:flex;gap:12px;align-items:center;padding:16px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));box-shadow:var(--card-shadow);transition:transform var(--transition)} .feature-card:hover{transform:translateY(-6px)} .feature-ico{width:64px;height:64px;border-radius:14px;background:rgba(255,255,255,0.02);display:grid;place-items:center;font-size:22px} .feature-title{font-weight:800} .feature-desc{color:var(--muted);font-size:14px;margin-top:6px} @media(min-width:900px){ .features-grid{grid-template-columns:repeat(3,1fr)} }
-
-/* USE CASES */ .use-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px} .use-card{padding:18px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));box-shadow:var(--card-shadow);display:flex;gap:12px;align-items:center} .use-card h4{margin:0;font-weight:800} .use-card p{margin:6px 0 0;color:var(--muted)} @media(min-width:900px){ .use-grid{grid-template-columns:repeat(3,1fr)} }
-
-/* FAQ accordion - instant open, smooth max-height */ .accordion{display:grid;gap:10px;margin-top:12px} .acc-item{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border-radius:16px;overflow:hidden;box-shadow:0 12px 30px rgba(2,6,12,0.42)} .acc-item input{position:absolute;left:-9999px} .acc-item label{display:flex;justify-content:space-between;align-items:center;padding:16px;cursor:pointer;font-weight:800} .acc-item .answer{padding:0 16px;max-height:0;overflow:hidden;color:var(--muted);font-size:14px;transition:max-height 240ms ease} .acc-item input:checked + label + .answer{max-height:400px;padding-bottom:16px} .acc-item label .chev{transition:transform 200ms ease} .acc-item input:checked + label .chev{transform:rotate(180deg)}
-
-/* CONTACT */ .contact-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px} .contact-ctas{display:flex;gap:12px;flex-wrap:wrap} .contact-chips{display:flex;gap:10px;flex-wrap:wrap} .contact-form{display:grid;gap:10px;padding:16px;border-radius:20px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));box-shadow:var(--card-shadow)} input,textarea,select{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:12px;border-radius:12px;color:#eef3f4;font-weight:600} input::placeholder,textarea::placeholder{color:rgba(238,243,244,0.35)} .submit{background:var(--accent);color:#2b0f07;border:0;padding:12px;border-radius:12px;font-weight:900;cursor:pointer}
-
-/* FOOTER */ footer{margin-top:40px;padding:30px 0;color:var(--muted);font-size:14px;text-align:center;border-top:1px solid rgba(255,255,255,0.02)} .footer-links{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:12px} .footer-links a{color:var(--muted);font-weight:700}
-
-/* Floating whatsapp button */ .float-wa{position:fixed;right:18px;bottom:18px;width:64px;height:64px;border-radius:16px;background:var(--accent);display:grid;place-items:center;color:#2b0f07;box-shadow:0 18px 40px rgba(255,120,75,0.16);z-index:95}
-
-/* Utilities */ .small{font-size:13px;color:var(--muted)} .center{display:flex;align-items:center;justify-content:center}
-
-/* Responsive tweaks */ @media(min-width:900px){ .wrap{padding-left:40px;padding-right:40px} .design-thumb{height:320px} .hero{border-radius:28px} .btn{border-radius:14px} } @media(min-width:1200px){ .wrap{padding-left:60px;padding-right:60px} } </style>
-
-</head>
-<body>
-<header>
-  <div class="nav-inner wrap" role="banner">
-    <div class="brand" aria-hidden="true">
-      <div class="brand-badge">CB</div>
-      <div>
-        <div style="font-size:13px;color:var(--muted);letter-spacing:0.6px">Custom</div>
-        <div style="font-size:16px;font-weight:900">Bottle Studio</div>
-      </div>
-    </div><nav class="primary" role="navigation" aria-label="Primary navigation">
-  <a href="#home">Home</a>
-  <a href="#designs">Designs</a>
-  <a href="#customization">Customization</a>
-  <a href="#how">How It Works</a>
-  <a href="#faqs">FAQs</a>
-  <a href="#contact">Contact</a>
-  <a class="cta-whatsapp" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
-</nav>
-
-<div class="hamburger">
-  <button id="openMenu" aria-label="Open menu">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
-      <path d="M3 6h18M3 12h18M3 18h18"/>
-    </svg>
-  </button>
-</div>
-
-  </div>
-</header><!-- Mobile menu overlay --><div id="menuOverlay" class="menu-overlay" aria-hidden="true">
-  <div class="menu-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
-    <div class="menu-top">
-      <div style="display:flex;gap:12px;align-items:center">
-        <div class="brand-badge" style="width:44px;height:44px">CB</div>
-        <div>
-          <div style="font-size:13px;color:var(--muted)">Custom Bottle Studio</div>
-          <div style="font-weight:800">Menu</div>
-        </div>
-      </div>
-      <button id="closeMenu" aria-label="Close menu" style="background:transparent;border:0;color:var(--muted)">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M6 18L18 6"/></svg>
-      </button>
-    </div><nav class="menu-links" role="navigation" aria-label="Mobile links">
-  <a href="#home" onclick="closeMenu()">Home</a>
-  <a href="#designs" onclick="closeMenu()">Designs</a>
-  <a href="#customization" onclick="closeMenu()">Customization</a>
-  <a href="#how" onclick="closeMenu()">How It Works</a>
-  <a href="#faqs" onclick="closeMenu()">FAQs</a>
-  <a href="#contact" onclick="closeMenu()">Contact</a>
-  <a class="cta-whatsapp" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer" style="margin-top:12px">Chat on WhatsApp</a>
-</nav>
-
-  </div>
-</div><main id="home" class="wrap" role="main">
-  <!-- HERO -->
-  <section aria-labelledby="hero-title">
-    <div class="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">BRANDED • CORPORATE • EVENTS</div>
-          <h1 id="hero-title">Get premium custom water bottles<br>that elevate your brand — fast,<br>and delivered nationwide.</h1>
-          <p class="hero-sub">Low MOQs, durable prints, and curated finishes. Real mockups within 24 hours — order for cafes, merch drops, events, or corporate gifting.</p><div class="hero-ctas" style="margin-top:18px">
-        <a class="btn primary" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">Get a Quote on WhatsApp</a>
-        <a class="btn outline" href="#designs">Browse Designs</a>
-      </div>
-
-      <div style="display:flex;gap:10px;margin-top:18px;align-items:center">
-        <div class="small">MOQ from 20 units</div>
-        <div class="small">Mockups in 24 hours</div>
-        <div class="small">Nationwide delivery</div>
-      </div>
-    </div>
-
-    <div class="hero-art center" aria-hidden="true">
-      <img src="https://i.ibb.co/MkdCJqt7/il-570x-N-5966540553-4fue.jpg" alt="Bottle sample" loading="lazy" width="340" height="420">
-    </div>
-  </div>
-</div>
-
-  </section>  <!-- DESIGNS & MOCKUPS -->  <section id="designs" aria-labelledby="designs-title">
-    <div class="section-head">
-      <h2 id="designs-title">Designs & Mockups</h2>
-      <div class="small">Three curated mockups — pick one and start your order on WhatsApp.</div>
-    </div><div class="design-grid" role="list" style="margin-top:18px">
-  <!-- Design 1 -->
-  <article class="design-card" role="listitem" aria-labelledby="d1">
-    <div class="design-thumb">
-      <img src="https://i.ibb.co/MkdCJqt7/il-570x-N-5966540553-4fue.jpg" alt="Matte white bottle" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:20px">
-    </div>
-    <div class="design-info">
-      <div id="d1" class="design-title">Sleek Matte Brand Print</div>
-      <div class="design-meta">Stainless Steel • 500ml • MOQ: 25</div>
-      <p style="margin-top:10px;color:var(--muted)">Smooth matte finish with full-wrap logo printing — perfect for cafes and premium merch.</p>
-      <div style="margin-top:12px" class="design-action">
-        <a href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">Get this custom design</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- Design 2 -->
-  <article class="design-card" role="listitem" aria-labelledby="d2">
-    <div class="design-thumb">
-      <img src="https://i.ibb.co/G4dLYv65/images-5.jpg" alt="Vibrant gradient bottle" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:20px">
-    </div>
-    <div class="design-info">
-      <div id="d2" class="design-title">Vibrant Gradient Print</div>
-      <div class="design-meta">Tritan Plastic • 750ml • MOQ: 30</div>
-      <p style="margin-top:10px;color:var(--muted)">Durable, colorfast print — great for gyms, studios and event merchandise.</p>
-      <div style="margin-top:12px" class="design-action">
-        <a href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">Get this custom design</a>
-      </div>
-    </div>
-  </article>
-
-  <!-- Design 3 -->
-  <article class="design-card" role="listitem" aria-labelledby="d3">
-    <div class="design-thumb">
-      <img src="https://i.ibb.co/pBCJkrf0/753e8df0-b9ea-46bb-8dac-8a17d93c2c3b.webp" alt="Metallic accent bottle" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:20px">
-    </div>
-    <div class="design-info">
-      <div id="d3" class="design-title">Minimal Metallic Accent</div>
-      <div class="design-meta">Double-wall Stainless • 500/750ml • MOQ: 20</div>
-      <p style="margin-top:10px;color:var(--muted)">Premium feel with metallic ink highlights — ideal for corporate gifting.</p>
-      <div style="margin-top:12px" class="design-action">
-        <a href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">Get this custom design</a>
-      </div>
-    </div>
-  </article>
-</div>
-
-  </section>  <!-- HOW IT WORKS -->  <section id="how" aria-labelledby="how-title">
-    <div class="section-head">
-      <h2 id="how-title">How It Works</h2>
-      <div class="small">Four simple steps — mockup to delivery.</div>
-    </div><div class="how-grid" style="margin-top:18px">
-  <div class="step-card">
-    <div class="step-ico">1</div>
-    <div>
-      <div class="step-title">Choose bottle type</div>
-      <div class="step-desc">Select size, material and cap. We'll help match the best option for print and budget.</div>
-    </div>
-  </div>
-
-  <div class="step-card">
-    <div class="step-ico">2</div>
-    <div>
-      <div class="step-title">Send your logo</div>
-      <div class="step-desc">Share high-res PNG/SVG or request a quick design. We accept standard formats.</div>
-    </div>
-  </div>
-
-  <div class="step-card">
-    <div class="step-ico">3</div>
-    <div>
-      <div class="step-title">Approve mockup</div>
-      <div class="step-desc">Receive a realistic mockup in 24 hours. Two revision rounds for tweaks included.</div>
-    </div>
-  </div>
-
-  <div class="step-card">
-    <div class="step-ico">4</div>
-    <div>
-      <div class="step-title">Printed & delivered</div>
-      <div class="step-desc">Production 5–8 business days post-approval. Fast courier options available nationwide.</div>
-    </div>
-  </div>
-</div>
-
-  </section>  <!-- CUSTOMIZATION OPTIONS -->  <section id="customization" aria-labelledby="custom-title">
-    <div class="section-head">
-      <h2 id="custom-title">Customization Options</h2>
-      <div class="small">Materials, finishes, print types, caps, sizes and bulk options — choose what fits your brand.</div>
-    </div><div style="margin-top:16px">
-  <div class="small" style="font-weight:800;margin-bottom:10px">Materials</div>
-  <div class="pills">
-    <div class="pill">Double-wall Stainless</div>
-    <div class="pill">Single-wall Stainless</div>
-    <div class="pill">Tritan (BPA-free)</div>
-  </div>
-
-  <div style="margin-top:12px" class="small" style="font-weight:800">Finishes</div>
-  <div class="pills" style="margin-top:8px">
-    <div class="pill">Matte</div>
-    <div class="pill">Satin</div>
-    <div class="pill">Metallic Ink</div>
-  </div>
-
-  <div style="margin-top:12px" class="small" style="font-weight:800">Print Types</div>
-  <div class="pills" style="margin-top:8px">
-    <div class="pill">Full-wrap</div>
-    <div class="pill">Spot UV</div>
-    <div class="pill">Laser Etch</div>
-  </div>
-
-  <div style="margin-top:12px" class="small" style="font-weight:800">Caps & Sizes</div>
-  <div class="pills" style="margin-top:8px">
-    <div class="pill">Screw</div>
-    <div class="pill">Flip</div>
-    <div class="pill">Straw</div>
-    <div class="pill">350ml • 500ml • 750ml</div>
-  </div>
-
-  <div style="margin-top:12px" class="small" style="font-weight:800">Bulk Options</div>
-  <div class="pills" style="margin-top:8px">
-    <div class="pill">Branded Boxes</div>
-    <div class="pill">Gift Packaging</div>
-    <div class="pill">Custom Stickers</div>
-  </div>
-
-  <div class="info-rows" style="margin-top:18px">
-    <div class="info-row">
-      <div style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.02);display:grid;place-items:center">✓</div>
-      <div>
-        <strong>Print durability</strong>
-        <p>High-bond inks and proper curing ensure prints withstand daily use. Most prints resist fading and abrasion.</p>
-      </div>
-    </div>
-
-    <div class="info-row">
-      <div style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.02);display:grid;place-items:center">☀️</div>
-      <div>
-        <strong>UV & weather resistance</strong>
-        <p>Outdoor-safe options available. We recommend protective finishes for long-term outdoor exposure.</p>
-      </div>
-    </div>
-
-    <div class="info-row">
-      <div style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.02);display:grid;place-items:center">⚡</div>
-      <div>
-        <strong>Mockup turnaround</strong>
-        <p>Initial mockups in 24 hours. Two revision rounds typically included — faster options on request.</p>
-      </div>
-    </div>
-
-    <div class="info-row">
-      <div style="width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.02);display:grid;place-items:center">🚚</div>
-      <div>
-        <strong>Delivery timeline</strong>
-        <p>Production 5–8 business days after approval. Delivery 2–5 business days nationwide. Express shipping available.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-  </section>  <!-- WHY CHOOSE US -->  <section aria-labelledby="why-title">
-    <div class="section-head">
-      <h2 id="why-title">Why Choose Us</h2>
-      <div class="small">Engineered for quality, reliability and brand impact.</div>
-    </div><div class="features-grid" style="margin-top:18px">
-  <div class="feature-card">
-    <div class="feature-ico">🔧</div>
-    <div>
-      <div class="feature-title">Premium Materials</div>
-      <div class="feature-desc">Top-tier stainless and BPA-free plastics chosen for feel and durability.</div>
-    </div>
-  </div>
-
-  <div class="feature-card">
-    <div class="feature-ico">⚡</div>
-    <div>
-      <div class="feature-title">Fast Mockups</div>
-      <div class="feature-desc">Realistic mockups within 24 hours so projects move quickly.</div>
-    </div>
-  </div>
-
-  <div class="feature-card">
-    <div class="feature-ico">⬇️</div>
-    <div>
-      <div class="feature-title">Low MOQ</div>
-      <div class="feature-desc">Minimums from 20–30 units depending on the model — ideal for small brands.</div>
-    </div>
-  </div>
-
-  <div class="feature-card">
-    <div class="feature-ico">🏪</div>
-    <div>
-      <div class="feature-title">Cafe & Retail Ready</div>
-      <div class="feature-desc">Designs and packaging tailored for resale and branded retail presence.</div>
-    </div>
-  </div>
-
-  <div class="feature-card">
-    <div class="feature-ico">❄️</div>
-    <div>
-      <div class="feature-title">Insulated Options</div>
-      <div class="feature-desc">Double-wall variants that keep beverages at the right temperature.</div>
-    </div>
-  </div>
-
-  <div class="feature-card">
-    <div class="feature-ico">🛡️</div>
-    <div>
-      <div class="feature-title">Scratch-resistant Prints</div>
-      <div class="feature-desc">Protective finishes and inks that resist daily wear.</div>
-    </div>
-  </div>
-</div>
-
-  </section>  <!-- USE CASES -->  <section aria-labelledby="use-title">
-    <div class="section-head">
-      <h2 id="use-title">Use Cases</h2>
-      <div class="small">Who uses our bottles? Cafes, gyms, events and more.</div>
-    </div><div class="use-grid" style="margin-top:18px">
-  <div class="use-card">
-    <div style="width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,0.02);display:grid;place-items:center">☕</div>
-    <div>
-      <h4>Cafes</h4>
-      <p>Retail bottles that increase daily impressions and brand recognition.</p>
-    </div>
-  </div>
-
-  <div class="use-card">
-    <div style="width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,0.02);display:grid;place-items:center">🍽️</div>
-    <div>
-      <h4>Restaurants</h4>
-      <p>Signature merch and VIP gifting that matches your ambience.</p>
-    </div>
-  </div>
-
-  <div class="use-card">
-    <div style="width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,0.02);display:grid;place-items:center">🏋️</div>
-    <div>
-      <h4>Gyms</h4>
-      <p>Durable bottles for training and member merch.</p>
-    </div>
-  </div>
-
-  <div class="use-card">
-    <div style="width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,0.02);display:grid;place-items:center">🎪</div>
-    <div>
-      <h4>Events</h4>
-      <p>Custom runs for conferences, weddings and activations.</p>
-    </div>
-  </div>
-
-  <div class="use-card">
-    <div style="width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,0.02);display:grid;place-items:center">🏢</div>
-    <div>
-      <h4>Corporates</h4>
-      <p>Employee gifting and branded office merch.</p>
-    </div>
-  </div>
-
-  <div class="use-card">
-    <div style="width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,0.02);display:grid;place-items:center">🛍️</div>
-    <div>
-      <h4>Merch Drops</h4>
-      <p>Limited-edition runs with premium inks and packaging.</p>
-    </div>
-  </div>
-</div>
-
-  </section>  <!-- FAQ -->  <section id="faqs" aria-labelledby="faqs-title">
-    <div class="section-head">
-      <h2 id="faqs-title">Frequently Asked Questions</h2>
-      <div class="small">Tap to open — instant responses, smooth transitions.</div>
-    </div><div class="accordion" role="list" aria-label="FAQs" style="margin-top:18px">
-  <div class="acc-item" role="listitem">
-    <input id="q1" type="checkbox">
-    <label for="q1">What is the minimum order quantity? <span class="chev">▾</span></label>
-    <div class="answer"><p>MOQs vary by model; stainless steel typically starts at 20–25 units. Tritan plastic models often start at 30. Contact us for exact pricing.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q2" type="checkbox">
-    <label for="q2">How quickly do I get a mockup? <span class="chev">▾</span></label>
-    <div class="answer"><p>Mockups are provided within 24 hours of brief or file submission. Two quick revision rounds are included in most orders.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q3" type="checkbox">
-    <label for="q3">Can I send my own design files? <span class="chev">▾</span></label>
-    <div class="answer"><p>Yes. We accept high-res PNG (transparent), SVG, AI and EPS files. Vector files are preferred for best scaling and print clarity.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q4" type="checkbox">
-    <label for="q4">What materials are available? <span class="chev">▾</span></label>
-    <div class="answer"><p>Double-wall stainless, single-wall stainless and Tritan (BPA-free) plastic. Each material has different insulation and weight characteristics—we’ll recommend the best fit.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q5" type="checkbox">
-    <label for="q5">What are production and delivery times? <span class="chev">▾</span></label>
-    <div class="answer"><p>Production: 5–8 business days after mockup approval. Delivery: typically 2–5 business days nationwide. Express options available.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q6" type="checkbox">
-    <label for="q6">Do you offer bulk discounts? <span class="chev">▾</span></label>
-    <div class="answer"><p>Yes. Volume pricing is available for larger runs (100+). For custom quotes, start a WhatsApp chat with your quantity and specs.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q7" type="checkbox">
-    <label for="q7">Are prints dishwasher-safe? <span class="chev">▾</span></label>
-    <div class="answer"><p>Most prints are best preserved with hand wash. Certain finishes are dishwasher-safe—ask us which finish you choose for exact instructions.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q8" type="checkbox">
-    <label for="q8">Can you do custom packaging? <span class="chev">▾</span></label>
-    <div class="answer"><p>Yes. Branded boxes, premium gift packaging and bulk-ready packs are available as add-ons. Pricing depends on design and volume.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q9" type="checkbox">
-    <label for="q9">What files should I provide? <span class="chev">▾</span></label>
-    <div class="answer"><p>Provide a vector file (SVG/AI/EPS) or a high-res transparent PNG at 300 DPI. Include brand colors and any layout notes. If you need help, we can assist on WhatsApp.</p></div>
-  </div>
-
-  <div class="acc-item">
-    <input id="q10" type="checkbox">
-    <label for="q10">How do I place an order? <span class="chev">▾</span></label>
-    <div class="answer"><p>Tap any 'Get this custom design' or press 'Chat on WhatsApp' to start. We'll confirm specs, send a mockup and finalize payment details in chat.</p></div>
-  </div>
-</div>
-
-  </section>  <!-- CONTACT / ORDER -->  <section id="contact" aria-labelledby="contact-title">
-    <div class="section-head">
-      <h2 id="contact-title">Contact & Order</h2>
-      <div class="small">Start a chat for quotes, mockups or custom requests.</div>
-    </div><div class="contact-grid" style="margin-top:18px">
-  <div>
-    <div class="contact-chips">
-      <div style="padding:12px;border-radius:12px;background:rgba(255,255,255,0.02)" class="small"><strong>Phone:</strong> +91 96123 01584</div>
-      <div style="padding:12px;border-radius:12px;background:rgba(255,255,255,0.02)" class="small"><strong>Email:</strong> hello@custombottle.studio</div>
-      <div style="padding:12px;border-radius:12px;background:rgba(255,255,255,0.02)" class="small"><strong>Location:</strong> Your City, Country</div>
-    </div>
-
-    <div style="margin-top:16px" class="contact-ctas">
-      <a class="btn primary" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
-      <a class="btn outline" href="#designs">Browse Designs</a>
-    </div>
-  </div>
-
-  <form class="contact-form" onsubmit="event.preventDefault()" aria-label="Contact form">
-    <div style="display:flex;gap:10px">
-      <input type="text" placeholder="Your name" aria-label="Name" style="flex:1">
-      <input type="tel" placeholder="Phone" aria-label="Phone" style="width:160px">
-    </div>
-    <input type="text" placeholder="Company / Brand (optional)" aria-label="Company">
-    <textarea placeholder="Project brief: quantity, model, deadline" rows="4" aria-label="Brief"></textarea>
-    <div style="display:flex;gap:10px;justify-content:flex-end">
-      <button class="submit" type="submit">Save & Start Chat</button>
-      <a class="btn outline" href="https://wa.me/919612301584">Get a Quote</a>
-    </div>
-  </form>
-</div>
-
-  </section>  <!-- FOOTER -->  <footer>
-    <div style="max-width:var(--max-width);margin:0 auto;padding:20px 20px;display:flex;flex-direction:column;gap:12px;align-items:center">
-      <div class="footer-links">
-        <a href="#designs">Designs</a>
-        <a href="#customization">Customization</a>
-        <a href="#how">How It Works</a>
-        <a href="#faqs">FAQs</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <div class="small">© 2025 Custom Bottle Studio • hello@custombottle.studio • +91 96123 01584</div>
-    </div>
-  </footer>
-</main><!-- Floating WhatsApp Button --><a class="float-wa" href="https://wa.me/919612301584" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24" width="28" height="28" fill="#2b0f07" aria-hidden="true"><path d="M20.52 3.48A11.87 11.87 0 0012 1C6 1 1.5 5.5 1.5 11.5c0 2.06.56 3.97 1.62 5.62L1 23l6.14-2.02A10.92 10.92 0 0012 22c6 0 10.5-4.5 10.5-10.5 0-2.84-1.1-5.51-3.98-8.02zM12 20.2c-1.9 0-3.76-.5-5.36-1.46l-.38-.22-3.65 1.2 1.18-3.07-.25-.4A8.71 8.71 0 013.3 11.5 8.7 8.7 0 0112 2.8a8.7 8.7 0 018.7 8.7A8.7 8.7 0 0112 20.2z"/><path d="M17.1 14.56c-.22-.11-1.35-.66-1.56-.74-.2-.09-.34-.14-.49.07s-.5.74-.62.9c-.12.16-.24.19-.46.07-.22-.11-.9-.32-1.72-.98-.63-.55-1.06-1.22-1.18-1.46-.12-.24-.01-.37.09-.48.09-.1.2-.26.3-.39.09-.13.06-.24 0-.35-.06-.11-.65-1.57-.89-2.15-.24-.57-.48-.49-.66-.5-.17-.01-.36-.01-.55-.01-.19 0-.47.07-.72.36s-.96.99-.96 2.41c0 1.42.98 2.77 1.12 2.98.14.22 2 3.43 4.92 4.83.68.3 1.24.47 1.72.6.71.21 1.36.18 1.87.11.58-.09 1.77-.73 2.02-1.44.24-.72.24-1.34.18-1.46-.06-.12-.21-.2-.42-.31z"/></svg>
-</a><script>
-  // Mobile menu controls
-  const menuOverlay = document.getElementById('menuOverlay');
-  const openMenuBtn = document.getElementById('openMenu');
-  const closeMenuBtn = document.getElementById('closeMenu');
-
-  function openMenu(){
-    menuOverlay.style.display = 'flex';
-    // allow animation to trigger
-    requestAnimationFrame(()=> {
-      const panel = menuOverlay.querySelector('.menu-panel');
-      panel.classList.add('show');
-      menuOverlay.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
-    });
-  }
-  function closeMenu(){
-    const panel = menuOverlay.querySelector('.menu-panel');
-    panel.classList.remove('show');
-    menuOverlay.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-    // hide overlay after transition
-    setTimeout(()=> menuOverlay.style.display='none', 260);
   }
 
-  openMenuBtn && openMenuBtn.addEventListener('click', openMenu);
-  closeMenuBtn && closeMenuBtn.addEventListener('click', closeMenu);
-  menuOverlay.addEventListener('click', (e)=>{
-    if(e.target === menuOverlay) closeMenu();
-  });
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;
+    background:
+      radial-gradient(800px 360px at 10% 10%, rgba(255,120,75,0.02), transparent 6%),
+      radial-gradient(600px 300px at 90% 90%, rgba(255,120,75,0.015), transparent 4%),
+      var(--bg);
+    color:#eef3f4;
+    -webkit-font-smoothing:antialiased;
+    scroll-behavior:smooth;
+  }
 
-  // Accessibility: close menu with Escape
-  document.addEventListener('keydown', (e)=> {
-    if(e.key === 'Escape') {
-      if(menuOverlay.style.display === 'flex') closeMenu();
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block;border-radius:16px}
+
+  .wrap{
+    width:100%;
+    max-width:var(--max-width);
+    margin:0 auto;
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  /* FIX #2 — responsive navbar rules */
+  header{
+    position:sticky;top:0;z-index:100;
+    backdrop-filter:blur(6px);
+    background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
+    border-bottom:1px solid rgba(255,255,255,0.03);
+  }
+
+  .nav-inner{
+    display:flex;align-items:center;gap:12px;
+    padding:14px 0;
+  }
+
+  .brand{
+    display:flex;align-items:center;gap:12px;
+  }
+  .brand-badge{
+    width:44px;height:44px;border-radius:12px;
+    background:linear-gradient(135deg,var(--accent),#ff6a39);
+    display:grid;place-items:center;
+    font-weight:900;color:#2b0f07;
+  }
+
+  nav.primary{
+    display:flex;align-items:center;gap:12px;margin-left:auto;
+  }
+  nav.primary a{
+    padding:10px 12px;border-radius:12px;
+    color:var(--muted);font-weight:600;font-size:15px;
+  }
+  nav.primary a:hover{color:#fff;transform:translateY(-3px);transition:var(--transition)}
+
+  .cta-whatsapp{
+    background:var(--accent);
+    padding:10px 14px;border-radius:14px;
+    font-weight:800;color:#2b0f07;
+    box-shadow:0 12px 30px rgba(255,120,75,0.12);
+  }
+
+  /* HAMBURGER — mobile only */
+  .hamburger{margin-left:auto;display:none}
+  .hamburger button{
+    background:transparent;border:0;color:var(--muted);
+    padding:8px;border-radius:10px;
+  }
+
+  /* MOBILE MENU */
+  .menu-overlay{
+    position:fixed;inset:0;
+    display:none;
+    background:rgba(0,0,0,0.55);
+    z-index:200;
+  }
+  .menu-panel{
+    width:85%;max-width:380px;height:100%;
+    background:#0d0f11;border-left:1px solid rgba(255,255,255,0.04);
+    padding:28px;display:flex;flex-direction:column;gap:16px;
+    transform:translateX(40px);opacity:0;
+    transition:transform 0.25s ease,opacity 0.25s ease;
+  }
+  .menu-panel.show{transform:translateX(0);opacity:1}
+
+  .menu-links{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+  .menu-links a{
+    padding:14px;border-radius:12px;
+    font-weight:700;color:var(--muted);
+  }
+  .menu-links a:hover{background:rgba(255,255,255,0.03);color:#fff}
+
+  /* RESPONSIVE NAV FIX */
+  @media(max-width:899px){
+    nav.primary{display:none}
+    .hamburger{display:flex}
+  }
+  @media(min-width:900px){
+    .menu-overlay{display:none !important}
+    .hamburger{display:none}
+  }
+
+  /* FIX #1 — Section spacing */
+  section{
+    padding-top:50px;
+    padding-bottom:50px;
+  }
+  @media(min-width:900px){
+    section{padding-top:100px;padding-bottom:100px}
+  }
+  @media(min-width:1200px){
+    section{padding-top:120px;padding-bottom:120px}
+  }
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(180deg,rgba(255,120,75,0.02),transparent 40%);
+    box-shadow:var(--card-shadow);
+    border-radius:20px;padding:28px;
+    display:flex;flex-direction:column;gap:20px;
+  }
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:20px}
+  .eyebrow{color:var(--muted);font-size:13px;font-weight:700}
+  h1{font-size:28px;line-height:1.05;margin:8px 0}
+  .hero-sub{color:var(--muted);font-size:15px;max-width:720px}
+  .hero-art img{
+    width:220px;height:auto;border-radius:20px;
+    box-shadow:0 18px 40px rgba(2,6,12,0.6);
+  }
+  .btn{
+    padding:14px 18px;border-radius:12px;
+    font-weight:800;font-size:15px;
+    display:inline-flex;align-items:center;gap:10px;
+    cursor:pointer;border:0;
+    transition:transform var(--transition);
+  }
+  .btn.primary{background:var(--accent);color:#2b0f07}
+  .btn.primary:hover{transform:translateY(-6px)}
+  .btn.outline{border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+  @media(min-width:900px){
+    .hero{padding:40px}
+    .hero-grid{grid-template-columns:1fr 420px}
+    h1{font-size:44px}
+    .hero-art img{width:320px}
+  }
+
+  /* DESIGN CARDS */
+  .design-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
+  .design-card{
+    padding:14px;border-radius:var(--card-radius);
+    background:rgba(255,255,255,0.02);
+    display:flex;gap:14px;align-items:center;
+    box-shadow:var(--card-shadow);
+    transition:transform var(--transition);
+  }
+  .design-card:hover{transform:translateY(-6px)}
+  .design-thumb{width:110px;flex-shrink:0}
+  .design-title{font-weight:800;font-size:16px}
+  .design-meta{color:var(--muted);font-size:13px;margin-top:6px}
+  .design-action a{
+    margin-top:10px;display:inline-block;
+    padding:10px 12px;border-radius:12px;
+    background:var(--accent);color:#2b0f07;font-weight:800;
+  }
+
+  @media(min-width:900px){
+    .design-grid{grid-template-columns:repeat(3,1fr)}
+    .design-card{flex-direction:column;padding:0}
+    .design-thumb{
+      width:100%;height:300px;
     }
-  });
-
-  // Ensure accordion only toggles instantly (no jank) - handled by CSS.
-  // Small enhancement to increase tap area on labels
-  document.querySelectorAll('.acc-item label').forEach(l=>{
-    l.style.padding = '18px';
-  });
-
-  // Prevent long-tap highlight
-  document.querySelectorAll('a,button').forEach(el=>{
-    el.addEventListener('touchstart', ()=> el.style.touchAction = 'manipulation', {passive:true});
-  });
-</script></body>
-</html>
+    .design-info{padding:18px}
+  }
